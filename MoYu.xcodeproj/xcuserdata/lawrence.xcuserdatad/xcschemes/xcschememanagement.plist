@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MYNotificationServiceExtension.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 		<key>MoYu.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,6 +12,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>212E3D17211EA88900B9B9F2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>21EE6AB420EF0DF50091D088</key>
 		<dict>
 			<key>primary</key>
