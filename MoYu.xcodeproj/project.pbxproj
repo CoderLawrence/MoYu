@@ -1,0 +1,917 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		210C431F2114BD6E00ED0375 /* UIViewController+MYImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C431E2114BD6E00ED0375 /* UIViewController+MYImagePicker.swift */; };
+		210E4F2B211351C9005604F8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210E4F2A211351C8005604F8 /* AVFoundation.framework */; };
+		2118453D2112D4EC00C313D4 /* MYImagePickerAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2118453C2112D4EC00C313D4 /* MYImagePickerAlbumCell.swift */; };
+		211A6700211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211A66FF211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift */; };
+		211A6702211050D600A3247B /* MYImagePickerAlbumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211A6701211050D600A3247B /* MYImagePickerAlbumListView.swift */; };
+		211AA7D3210F2F2400EE25B3 /* MYImagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211AA7D2210F2F2400EE25B3 /* MYImagePickerCell.swift */; };
+		211DF53321103ED400C91009 /* MYImagePickerBadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211DF53221103ED400C91009 /* MYImagePickerBadgeButton.swift */; };
+		211DF5352110408900C91009 /* MYImagePickerSubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211DF5342110408900C91009 /* MYImagePickerSubViewModel.swift */; };
+		212E3D1B211EA88900B9B9F2 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E3D1A211EA88900B9B9F2 /* NotificationService.swift */; };
+		212E3D20211EA88900B9B9F2 /* MYNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 212E3D18211EA88900B9B9F2 /* MYNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2161E76C210AC077001D2C99 /* MYImagePickerAlbumModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161E76B210AC077001D2C99 /* MYImagePickerAlbumModel+Extension.swift */; };
+		2161E76E210AC0CF001D2C99 /* MYImagePickerItemModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161E76D210AC0CF001D2C99 /* MYImagePickerItemModel+Extension.swift */; };
+		21824A4B210C716A008AA1F8 /* MoYuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21824A4A210C716A008AA1F8 /* MoYuTests.swift */; };
+		21824A59210C717B008AA1F8 /* MoYuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21824A58210C717B008AA1F8 /* MoYuUITests.swift */; };
+		21824A61210C7CCA008AA1F8 /* MYImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21824A60210C7CCA008AA1F8 /* MYImagePickerViewModel.swift */; };
+		219DC2A72111F6740084DA5B /* UILabel+MYImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DC2A62111F6740084DA5B /* UILabel+MYImagePicker.swift */; };
+		21A5391E210B170A004586AA /* MYImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A5391D210B170A004586AA /* MYImagePickerViewController.swift */; };
+		21A53920210B1C21004586AA /* MYImagePickerPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A5391F210B1C21004586AA /* MYImagePickerPreviewViewController.swift */; };
+		21A9AD5E210976180074190D /* MYImagePickerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A9AD5D210976180074190D /* MYImagePickerError.swift */; };
+		21EE6AB920EF0DF50091D088 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EE6AB820EF0DF50091D088 /* AppDelegate.swift */; };
+		21EE6ABB20EF0DF50091D088 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EE6ABA20EF0DF50091D088 /* ViewController.swift */; };
+		21EE6ABE20EF0DF50091D088 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21EE6ABC20EF0DF50091D088 /* Main.storyboard */; };
+		21EE6AC020EF0DF70091D088 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21EE6ABF20EF0DF70091D088 /* Assets.xcassets */; };
+		21EE6AC320EF0DF70091D088 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21EE6AC120EF0DF70091D088 /* LaunchScreen.storyboard */; };
+		21EE6AF020EF127B0091D088 /* MYImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EE6AEF20EF127B0091D088 /* MYImagePickerManager.swift */; };
+		21EE6AF220EF12E40091D088 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EE6AF120EF12E30091D088 /* Photos.framework */; };
+		21EE6AF420EF299B0091D088 /* MYImagePickerAlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EE6AF320EF299B0091D088 /* MYImagePickerAlbumModel.swift */; };
+		21EE6AF620EF2D010091D088 /* MYImagePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EE6AF520EF2D010091D088 /* MYImagePickerItemModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		212E3D1D211EA88900B9B9F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21EE6AAD20EF0DF50091D088 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 212E3D17211EA88900B9B9F2;
+			remoteInfo = MYNotificationServiceExtension;
+		};
+		21824A4D210C716A008AA1F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21EE6AAD20EF0DF50091D088 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21EE6AB420EF0DF50091D088;
+			remoteInfo = MoYu;
+		};
+		21824A5B210C717B008AA1F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21EE6AAD20EF0DF50091D088 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21EE6AB420EF0DF50091D088;
+			remoteInfo = MoYu;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		212E3D1F211EA88900B9B9F2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				212E3D20211EA88900B9B9F2 /* MYNotificationServiceExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		210C431E2114BD6E00ED0375 /* UIViewController+MYImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+MYImagePicker.swift"; sourceTree = "<group>"; };
+		210E4F2A211351C8005604F8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2118453C2112D4EC00C313D4 /* MYImagePickerAlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerAlbumCell.swift; sourceTree = "<group>"; };
+		211A66FF211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerAlbumSwitchButton.swift; sourceTree = "<group>"; };
+		211A6701211050D600A3247B /* MYImagePickerAlbumListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerAlbumListView.swift; sourceTree = "<group>"; };
+		211AA7D2210F2F2400EE25B3 /* MYImagePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerCell.swift; sourceTree = "<group>"; };
+		211DF53221103ED400C91009 /* MYImagePickerBadgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerBadgeButton.swift; sourceTree = "<group>"; };
+		211DF5342110408900C91009 /* MYImagePickerSubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerSubViewModel.swift; sourceTree = "<group>"; };
+		212E3D18211EA88900B9B9F2 /* MYNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MYNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		212E3D1A211EA88900B9B9F2 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		212E3D1C211EA88900B9B9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2161E76B210AC077001D2C99 /* MYImagePickerAlbumModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MYImagePickerAlbumModel+Extension.swift"; sourceTree = "<group>"; };
+		2161E76D210AC0CF001D2C99 /* MYImagePickerItemModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MYImagePickerItemModel+Extension.swift"; sourceTree = "<group>"; };
+		21824A48210C716A008AA1F8 /* MoYuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoYuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21824A4A210C716A008AA1F8 /* MoYuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoYuTests.swift; sourceTree = "<group>"; };
+		21824A4C210C716A008AA1F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21824A56210C717B008AA1F8 /* MoYuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoYuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21824A58210C717B008AA1F8 /* MoYuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoYuUITests.swift; sourceTree = "<group>"; };
+		21824A5A210C717B008AA1F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21824A60210C7CCA008AA1F8 /* MYImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerViewModel.swift; sourceTree = "<group>"; };
+		219DC2A62111F6740084DA5B /* UILabel+MYImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+MYImagePicker.swift"; sourceTree = "<group>"; };
+		21A5391D210B170A004586AA /* MYImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerViewController.swift; sourceTree = "<group>"; };
+		21A5391F210B1C21004586AA /* MYImagePickerPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerPreviewViewController.swift; sourceTree = "<group>"; };
+		21A9AD5D210976180074190D /* MYImagePickerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerError.swift; sourceTree = "<group>"; };
+		21EE6AB520EF0DF50091D088 /* MoYu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoYu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21EE6AB820EF0DF50091D088 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		21EE6ABA20EF0DF50091D088 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		21EE6ABD20EF0DF50091D088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		21EE6ABF20EF0DF70091D088 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		21EE6AC220EF0DF70091D088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		21EE6AC420EF0DF70091D088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21EE6AEF20EF127B0091D088 /* MYImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerManager.swift; sourceTree = "<group>"; };
+		21EE6AF120EF12E30091D088 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		21EE6AF320EF299B0091D088 /* MYImagePickerAlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerAlbumModel.swift; sourceTree = "<group>"; };
+		21EE6AF520EF2D010091D088 /* MYImagePickerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerItemModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		212E3D15211EA88900B9B9F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21824A45210C716A008AA1F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21824A53210C717B008AA1F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21EE6AB220EF0DF50091D088 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				210E4F2B211351C9005604F8 /* AVFoundation.framework in Frameworks */,
+				21EE6AF220EF12E40091D088 /* Photos.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		212E3D19211EA88900B9B9F2 /* MYNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				212E3D1A211EA88900B9B9F2 /* NotificationService.swift */,
+				212E3D1C211EA88900B9B9F2 /* Info.plist */,
+			);
+			path = MYNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
+		2161E76A210ABFDE001D2C99 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				219DC2A62111F6740084DA5B /* UILabel+MYImagePicker.swift */,
+				210C431E2114BD6E00ED0375 /* UIViewController+MYImagePicker.swift */,
+				2161E76D210AC0CF001D2C99 /* MYImagePickerItemModel+Extension.swift */,
+				2161E76B210AC077001D2C99 /* MYImagePickerAlbumModel+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		21824A49210C716A008AA1F8 /* MoYuTests */ = {
+			isa = PBXGroup;
+			children = (
+				21824A4A210C716A008AA1F8 /* MoYuTests.swift */,
+				21824A4C210C716A008AA1F8 /* Info.plist */,
+			);
+			path = MoYuTests;
+			sourceTree = "<group>";
+		};
+		21824A57210C717B008AA1F8 /* MoYuUITests */ = {
+			isa = PBXGroup;
+			children = (
+				21824A58210C717B008AA1F8 /* MoYuUITests.swift */,
+				21824A5A210C717B008AA1F8 /* Info.plist */,
+			);
+			path = MoYuUITests;
+			sourceTree = "<group>";
+		};
+		21824A62210C7CD5008AA1F8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				21824A60210C7CCA008AA1F8 /* MYImagePickerViewModel.swift */,
+				211DF5342110408900C91009 /* MYImagePickerSubViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		21824A63210CC583008AA1F8 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		21A53921210B1E7E004586AA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				21A5391D210B170A004586AA /* MYImagePickerViewController.swift */,
+				21A5391F210B1C21004586AA /* MYImagePickerPreviewViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		21A53922210B1E8C004586AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				211AA7D2210F2F2400EE25B3 /* MYImagePickerCell.swift */,
+				2118453C2112D4EC00C313D4 /* MYImagePickerAlbumCell.swift */,
+				211DF53221103ED400C91009 /* MYImagePickerBadgeButton.swift */,
+				211A6701211050D600A3247B /* MYImagePickerAlbumListView.swift */,
+				211A66FF211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		21E2B13221081353000AD858 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				21EE6AEF20EF127B0091D088 /* MYImagePickerManager.swift */,
+				21EE6AF320EF299B0091D088 /* MYImagePickerAlbumModel.swift */,
+				21EE6AF520EF2D010091D088 /* MYImagePickerItemModel.swift */,
+				21A9AD5D210976180074190D /* MYImagePickerError.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		21E2B13321081365000AD858 /* Mutual */ = {
+			isa = PBXGroup;
+			children = (
+				21A53922210B1E8C004586AA /* View */,
+				21824A62210C7CD5008AA1F8 /* ViewModel */,
+				21A53921210B1E7E004586AA /* Controller */,
+			);
+			path = Mutual;
+			sourceTree = "<group>";
+		};
+		21EE6AAC20EF0DF50091D088 = {
+			isa = PBXGroup;
+			children = (
+				21EE6AE720EF0F0D0091D088 /* Support */,
+				21EE6AE820EF0F920091D088 /* Classes */,
+				21EE6AE620EF0EF90091D088 /* Module */,
+				21EE6AB720EF0DF50091D088 /* MoYu */,
+				21EE6AE920EF0FA50091D088 /* Resources */,
+				21824A49210C716A008AA1F8 /* MoYuTests */,
+				21824A57210C717B008AA1F8 /* MoYuUITests */,
+				212E3D19211EA88900B9B9F2 /* MYNotificationServiceExtension */,
+				21EE6AB620EF0DF50091D088 /* Products */,
+				21EE6AEB20EF117F0091D088 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		21EE6AB620EF0DF50091D088 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21EE6AB520EF0DF50091D088 /* MoYu.app */,
+				21824A48210C716A008AA1F8 /* MoYuTests.xctest */,
+				21824A56210C717B008AA1F8 /* MoYuUITests.xctest */,
+				212E3D18211EA88900B9B9F2 /* MYNotificationServiceExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		21EE6AB720EF0DF50091D088 /* MoYu */ = {
+			isa = PBXGroup;
+			children = (
+				21EE6ABA20EF0DF50091D088 /* ViewController.swift */,
+				21EE6ABC20EF0DF50091D088 /* Main.storyboard */,
+				21EE6AC120EF0DF70091D088 /* LaunchScreen.storyboard */,
+			);
+			path = MoYu;
+			sourceTree = "<group>";
+		};
+		21EE6AE620EF0EF90091D088 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				21824A63210CC583008AA1F8 /* HomePage */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		21EE6AE720EF0F0D0091D088 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				21EE6AEE20EF12290091D088 /* MYImagePicker */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		21EE6AE820EF0F920091D088 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				21EE6AEA20EF10A60091D088 /* Application */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		21EE6AE920EF0FA50091D088 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				21EE6AC420EF0DF70091D088 /* Info.plist */,
+				21EE6ABF20EF0DF70091D088 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		21EE6AEA20EF10A60091D088 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				21EE6AB820EF0DF50091D088 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		21EE6AEB20EF117F0091D088 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				210E4F2A211351C8005604F8 /* AVFoundation.framework */,
+				21EE6AF120EF12E30091D088 /* Photos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		21EE6AEE20EF12290091D088 /* MYImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				21E2B13321081365000AD858 /* Mutual */,
+				21E2B13221081353000AD858 /* Core */,
+				2161E76A210ABFDE001D2C99 /* Extensions */,
+			);
+			path = MYImagePicker;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		212E3D17211EA88900B9B9F2 /* MYNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 212E3D23211EA88900B9B9F2 /* Build configuration list for PBXNativeTarget "MYNotificationServiceExtension" */;
+			buildPhases = (
+				212E3D14211EA88900B9B9F2 /* Sources */,
+				212E3D15211EA88900B9B9F2 /* Frameworks */,
+				212E3D16211EA88900B9B9F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MYNotificationServiceExtension;
+			productName = MYNotificationServiceExtension;
+			productReference = 212E3D18211EA88900B9B9F2 /* MYNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		21824A47210C716A008AA1F8 /* MoYuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21824A4F210C716A008AA1F8 /* Build configuration list for PBXNativeTarget "MoYuTests" */;
+			buildPhases = (
+				21824A44210C716A008AA1F8 /* Sources */,
+				21824A45210C716A008AA1F8 /* Frameworks */,
+				21824A46210C716A008AA1F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21824A4E210C716A008AA1F8 /* PBXTargetDependency */,
+			);
+			name = MoYuTests;
+			productName = MoYuTests;
+			productReference = 21824A48210C716A008AA1F8 /* MoYuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		21824A55210C717B008AA1F8 /* MoYuUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21824A5D210C717B008AA1F8 /* Build configuration list for PBXNativeTarget "MoYuUITests" */;
+			buildPhases = (
+				21824A52210C717B008AA1F8 /* Sources */,
+				21824A53210C717B008AA1F8 /* Frameworks */,
+				21824A54210C717B008AA1F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21824A5C210C717B008AA1F8 /* PBXTargetDependency */,
+			);
+			name = MoYuUITests;
+			productName = MoYuUITests;
+			productReference = 21824A56210C717B008AA1F8 /* MoYuUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		21EE6AB420EF0DF50091D088 /* MoYu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21EE6ADD20EF0DF70091D088 /* Build configuration list for PBXNativeTarget "MoYu" */;
+			buildPhases = (
+				21EE6AB120EF0DF50091D088 /* Sources */,
+				21EE6AB220EF0DF50091D088 /* Frameworks */,
+				21EE6AB320EF0DF50091D088 /* Resources */,
+				212E3D1F211EA88900B9B9F2 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				212E3D1E211EA88900B9B9F2 /* PBXTargetDependency */,
+			);
+			name = MoYu;
+			productName = MoYin;
+			productReference = 21EE6AB520EF0DF50091D088 /* MoYu.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		21EE6AAD20EF0DF50091D088 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = Lawrence;
+				TargetAttributes = {
+					212E3D17211EA88900B9B9F2 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					21824A47210C716A008AA1F8 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 21EE6AB420EF0DF50091D088;
+					};
+					21824A55210C717B008AA1F8 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 21EE6AB420EF0DF50091D088;
+					};
+					21EE6AB420EF0DF50091D088 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
+			};
+			buildConfigurationList = 21EE6AB020EF0DF50091D088 /* Build configuration list for PBXProject "MoYu" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 21EE6AAC20EF0DF50091D088;
+			productRefGroup = 21EE6AB620EF0DF50091D088 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				21EE6AB420EF0DF50091D088 /* MoYu */,
+				21824A47210C716A008AA1F8 /* MoYuTests */,
+				21824A55210C717B008AA1F8 /* MoYuUITests */,
+				212E3D17211EA88900B9B9F2 /* MYNotificationServiceExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		212E3D16211EA88900B9B9F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21824A46210C716A008AA1F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21824A54210C717B008AA1F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21EE6AB320EF0DF50091D088 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21EE6AC320EF0DF70091D088 /* LaunchScreen.storyboard in Resources */,
+				21EE6AC020EF0DF70091D088 /* Assets.xcassets in Resources */,
+				21EE6ABE20EF0DF50091D088 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		212E3D14211EA88900B9B9F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				212E3D1B211EA88900B9B9F2 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21824A44210C716A008AA1F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21824A4B210C716A008AA1F8 /* MoYuTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21824A52210C717B008AA1F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21824A59210C717B008AA1F8 /* MoYuUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21EE6AB120EF0DF50091D088 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21A5391E210B170A004586AA /* MYImagePickerViewController.swift in Sources */,
+				210C431F2114BD6E00ED0375 /* UIViewController+MYImagePicker.swift in Sources */,
+				211A6700211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift in Sources */,
+				211AA7D3210F2F2400EE25B3 /* MYImagePickerCell.swift in Sources */,
+				21A53920210B1C21004586AA /* MYImagePickerPreviewViewController.swift in Sources */,
+				211A6702211050D600A3247B /* MYImagePickerAlbumListView.swift in Sources */,
+				2118453D2112D4EC00C313D4 /* MYImagePickerAlbumCell.swift in Sources */,
+				2161E76E210AC0CF001D2C99 /* MYImagePickerItemModel+Extension.swift in Sources */,
+				21EE6AF020EF127B0091D088 /* MYImagePickerManager.swift in Sources */,
+				21EE6AF420EF299B0091D088 /* MYImagePickerAlbumModel.swift in Sources */,
+				21824A61210C7CCA008AA1F8 /* MYImagePickerViewModel.swift in Sources */,
+				21EE6ABB20EF0DF50091D088 /* ViewController.swift in Sources */,
+				21EE6AF620EF2D010091D088 /* MYImagePickerItemModel.swift in Sources */,
+				21A9AD5E210976180074190D /* MYImagePickerError.swift in Sources */,
+				21EE6AB920EF0DF50091D088 /* AppDelegate.swift in Sources */,
+				211DF5352110408900C91009 /* MYImagePickerSubViewModel.swift in Sources */,
+				211DF53321103ED400C91009 /* MYImagePickerBadgeButton.swift in Sources */,
+				219DC2A72111F6740084DA5B /* UILabel+MYImagePicker.swift in Sources */,
+				2161E76C210AC077001D2C99 /* MYImagePickerAlbumModel+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		212E3D1E211EA88900B9B9F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 212E3D17211EA88900B9B9F2 /* MYNotificationServiceExtension */;
+			targetProxy = 212E3D1D211EA88900B9B9F2 /* PBXContainerItemProxy */;
+		};
+		21824A4E210C716A008AA1F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21EE6AB420EF0DF50091D088 /* MoYu */;
+			targetProxy = 21824A4D210C716A008AA1F8 /* PBXContainerItemProxy */;
+		};
+		21824A5C210C717B008AA1F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21EE6AB420EF0DF50091D088 /* MoYu */;
+			targetProxy = 21824A5B210C717B008AA1F8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		21EE6ABC20EF0DF50091D088 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21EE6ABD20EF0DF50091D088 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		21EE6AC120EF0DF70091D088 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21EE6AC220EF0DF70091D088 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		212E3D21211EA88900B9B9F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95DN6Z98SA;
+				INFOPLIST_FILE = MYNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lawrence.MoYu.MYNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		212E3D22211EA88900B9B9F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95DN6Z98SA;
+				INFOPLIST_FILE = MYNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lawrence.MoYu.MYNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		21824A50210C716A008AA1F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95DN6Z98SA;
+				INFOPLIST_FILE = MoYuTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lawrence.MoYuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoYu.app/MoYu";
+			};
+			name = Debug;
+		};
+		21824A51210C716A008AA1F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95DN6Z98SA;
+				INFOPLIST_FILE = MoYuTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lawrence.MoYuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoYu.app/MoYu";
+			};
+			name = Release;
+		};
+		21824A5E210C717B008AA1F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95DN6Z98SA;
+				INFOPLIST_FILE = MoYuUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lawrence.MoYuUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MoYu;
+			};
+			name = Debug;
+		};
+		21824A5F210C717B008AA1F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95DN6Z98SA;
+				INFOPLIST_FILE = MoYuUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lawrence.MoYuUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MoYu;
+			};
+			name = Release;
+		};
+		21EE6ADB20EF0DF70091D088 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		21EE6ADC20EF0DF70091D088 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		21EE6ADE20EF0DF70091D088 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95DN6Z98SA;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lawrence.MoYu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		21EE6ADF20EF0DF70091D088 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95DN6Z98SA;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lawrence.MoYu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		212E3D23211EA88900B9B9F2 /* Build configuration list for PBXNativeTarget "MYNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				212E3D21211EA88900B9B9F2 /* Debug */,
+				212E3D22211EA88900B9B9F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21824A4F210C716A008AA1F8 /* Build configuration list for PBXNativeTarget "MoYuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21824A50210C716A008AA1F8 /* Debug */,
+				21824A51210C716A008AA1F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21824A5D210C717B008AA1F8 /* Build configuration list for PBXNativeTarget "MoYuUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21824A5E210C717B008AA1F8 /* Debug */,
+				21824A5F210C717B008AA1F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21EE6AB020EF0DF50091D088 /* Build configuration list for PBXProject "MoYu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21EE6ADB20EF0DF70091D088 /* Debug */,
+				21EE6ADC20EF0DF70091D088 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21EE6ADD20EF0DF70091D088 /* Build configuration list for PBXNativeTarget "MoYu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21EE6ADE20EF0DF70091D088 /* Debug */,
+				21EE6ADF20EF0DF70091D088 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 21EE6AAD20EF0DF50091D088 /* Project object */;
+}
