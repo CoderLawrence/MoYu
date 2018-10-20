@@ -378,14 +378,17 @@
 				TargetAttributes = {
 					21824A47210C716A008AA1F8 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 21EE6AB420EF0DF50091D088;
 					};
 					21824A55210C717B008AA1F8 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 21EE6AB420EF0DF50091D088;
 					};
 					21EE6AB420EF0DF50091D088 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -529,7 +532,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lawrence.MoYuTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoYu.app/MoYu";
 			};
@@ -550,7 +553,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lawrence.MoYuTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoYu.app/MoYu";
 			};
@@ -570,7 +573,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lawrence.MoYuUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MoYu;
 			};
@@ -590,7 +593,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lawrence.MoYuUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MoYu;
 			};
@@ -724,7 +727,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lawrence.MoYu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -743,7 +746,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lawrence.MoYu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

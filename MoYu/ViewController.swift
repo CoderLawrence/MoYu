@@ -45,9 +45,9 @@ class ViewController: UIViewController {
         }
         
         let button: UIButton = UIButton(frame: CGRect(x: self.view.frame.size.width/2, y: 100, width: 50, height: 25))
-        button.addTarget(self, action: #selector(onButtonPress), for: UIControlEvents.touchUpInside)
-        button.setTitle("相册", for: UIControlState.normal)
-        button.setTitleColor(UIColor.black, for: UIControlState.normal)
+        button.addTarget(self, action: #selector(onButtonPress), for: UIControl.Event.touchUpInside)
+        button.setTitle("相册", for: UIControl.State.normal)
+        button.setTitleColor(UIColor.black, for: UIControl.State.normal)
         self.view.addSubview(button)
     }
 

@@ -126,7 +126,7 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
         let screenWidth: CGFloat = UIScreen.main.bounds.size.width
         let itemWidth: CGFloat = CGFloat(floorf(Float((screenWidth - 3 * itemSpace - itemSpace * 2)/4)))
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.scrollDirection = UICollectionViewScrollDirection.vertical
+        layout.scrollDirection = UICollectionView.ScrollDirection.vertical
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
         layout.minimumInteritemSpacing = itemSpace
         layout.minimumLineSpacing = itemSpace
@@ -149,7 +149,7 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
     
     lazy var leftBarButtonItem: UIBarButtonItem = {
        () -> UIBarButtonItem in
-        let item: UIBarButtonItem = UIBarButtonItem.init(title: "取消", style: UIBarButtonItemStyle.plain, target: self, action: #selector(onLeftBarButtonPress))
+        let item: UIBarButtonItem = UIBarButtonItem.init(title: "取消", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onLeftBarButtonPress))
         
         return item
     }()
@@ -176,7 +176,7 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
         let height: CGFloat = self.view.frame.size.height
         let tempListView: MYImagePickerAlbumListView = MYImagePickerAlbumListView()
         tempListView.frame = CGRect.init(x: 0, y: 0, width: width, height: height)
-        tempListView.addTarget(self, action: #selector(onAlbumListPress), for: UIControlEvents.touchUpInside)
+        tempListView.addTarget(self, action: #selector(onAlbumListPress), for: UIControl.Event.touchUpInside)
         tempListView.delegate = self
         tempListView.show(isPackUp: true, animation: false)
         

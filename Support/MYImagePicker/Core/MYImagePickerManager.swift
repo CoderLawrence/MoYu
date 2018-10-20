@@ -189,7 +189,7 @@ class MYImagePickerManager: NSObject {
                 let isDownload:Bool = (info![PHImageCancelledKey] == nil && info![PHImageErrorKey] == nil)
                 if (image != nil && isDownload) {
                     let scale: CGFloat = CGFloat((image?.size.height)! / thumbnailLength)
-                    let thumbnailImage: UIImage = UIImage.init(cgImage: (image?.cgImage)!, scale: scale, orientation: UIImageOrientation.up)
+                    let thumbnailImage: UIImage = UIImage.init(cgImage: (image?.cgImage)!, scale: scale, orientation: UIImage.Orientation.up)
                     
                     DispatchQueue.main.async {
                         handle(identifier, thumbnailImage)
@@ -352,7 +352,7 @@ class MYImagePickerManager: NSObject {
         }
         
         PHPhotoLibrary.shared().performChanges({
-            let data: Data = UIImageJPEGRepresentation(image!, 0.9)!
+            let data: Data = image!.jpegData(compressionQuality: 0.9)!
             if #available(iOS 9.0, *) {
                 let requestOptions: PHAssetResourceCreationOptions = PHAssetResourceCreationOptions()
                 let request:PHAssetCreationRequest = PHAssetCreationRequest()

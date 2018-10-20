@@ -49,7 +49,7 @@ class MYImagePickerCell: UICollectionViewCell, MYImagePickerSubViewModelDelegate
     lazy var imageView: UIImageView = {
        () -> UIImageView in
         let imageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.contentMode = UIView.ContentMode.scaleAspectFill
         imageView.clipsToBounds = true
         
         if (self.viewModel.thumbanilImage != nil) {

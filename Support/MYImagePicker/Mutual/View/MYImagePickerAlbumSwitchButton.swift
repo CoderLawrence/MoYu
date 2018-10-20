@@ -143,7 +143,7 @@ class MYImagePickerAlbumSwitchButton: UIControl {
     
     /// 添加点击事件
     private func addEvents() {
-        self.addTarget(self, action: #selector(onClick), for: UIControlEvents.touchUpInside)
+        self.addTarget(self, action: #selector(onClick), for: UIControl.Event.touchUpInside)
     }
     
     // MARK: - action

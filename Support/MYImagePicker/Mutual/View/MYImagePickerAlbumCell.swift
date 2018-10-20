@@ -41,7 +41,7 @@ class MYImagePickerAlbumCell: UITableViewCell {
     
     // MARK: - init
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupUI()
     }
@@ -74,7 +74,7 @@ class MYImagePickerAlbumCell: UITableViewCell {
         let marginY: CGFloat = 10
         let width: CGFloat = MYImagePickerAlbumCell.cellHeight() - marginY * 2
         let tempImageView: UIImageView = UIImageView(frame: CGRect(x: marginX, y: marginY, width: width, height: width))
-        tempImageView.contentMode = UIViewContentMode.scaleAspectFill
+        tempImageView.contentMode = UIView.ContentMode.scaleAspectFill
         tempImageView.clipsToBounds = true
         
         return tempImageView

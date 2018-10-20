@@ -60,7 +60,7 @@ class MYImagePickerAlbumListView: UIControl, UITableViewDataSource, UITableViewD
        () -> UITableView in
         let tempTableView: UITableView = UITableView()
         tempTableView.register(MYImagePickerAlbumCell.classForCoder(), forCellReuseIdentifier: kMYImagePickerAlbumCellReuseIdentifier)
-        tempTableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tempTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tempTableView.backgroundColor = UIColor.white.withAlphaComponent(0)
         tempTableView.frame = CGRect.zero
         tempTableView.delegate = self
