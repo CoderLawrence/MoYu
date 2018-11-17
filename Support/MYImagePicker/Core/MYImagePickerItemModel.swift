@@ -9,7 +9,7 @@
 import UIKit
 import Photos
 
-class MYImagePickerItemModel: NSObject {
+public class MYImagePickerItemModel {
     
     /// 照片原始数据
     public var data: PHAsset?

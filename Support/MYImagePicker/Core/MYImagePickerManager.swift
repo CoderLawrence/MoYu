@@ -7,17 +7,18 @@
 //
 
 import Foundation
+import Dispatch
 import Photos
 
 /// 授权状态枚举
-enum MYImagePickerAuthorizationStatus: Int {
+public enum MYImagePickerAuthorizationStatus: Int {
     case notDetermined = 0
     case restricted
     case denied
     case authorized
 }
 
-class MYImagePickerManager: NSObject {
+public class MYImagePickerManager {
     
     // MARK: - 初始化
     /// 单例实例
@@ -27,14 +28,13 @@ class MYImagePickerManager: NSObject {
     var isSortAscendingByModificationDate: Bool!
     
     /// 单例方法
-    class func share() -> MYImagePickerManager {
+    public class func share() -> MYImagePickerManager {
         return shareImagePicker
     }
     
     /// 方法重载
-    private override init() {
-        super.init()
-        self.isSortAscendingByModificationDate = true
+    private init() {
+        self.isSortAscendingByModificationDate = true;
     }
     
     // MARK: - 授权相关&&相册辅助方法
@@ -103,14 +103,14 @@ class MYImagePickerManager: NSObject {
     /// 加载相册数据，不包括相机胶卷
     ///
     /// - Parameter handle: 相册数据
-    public func getAlbumListWithCompletion(_ handle: @escaping (Array<MYImagePickerAlbumModel>) -> Swift.Void) {
+    public func getAlbumListWithCompletion(_ handle: @escaping ([MYImagePickerAlbumModel]) -> Swift.Void) {
         self.loadPHCollectionWithCompletion(isCameraRollOnly: false, handle)
     }
     
     /// 加载相册数据，包括相机胶卷
     ///
     /// - Parameter handle: 相册数据
-    public func getCameraRollAlbumListWithCompletion(_ handle: @escaping (Array<MYImagePickerAlbumModel>) -> Swift.Void) {
+    public func getCameraRollAlbumListWithCompletion(_ handle: @escaping ([MYImagePickerAlbumModel]) -> Swift.Void) {
         self.loadPHCollectionWithCompletion(isCameraRollOnly: true, handle)
     }
     
@@ -119,8 +119,8 @@ class MYImagePickerManager: NSObject {
     /// - Parameters:
     ///   - album: 相册数据
     ///   - handle: 图片数据集合
-    public func getAssetListForAlbum(album: MYImagePickerAlbumModel, _ handle: @escaping (Array<MYImagePickerItemModel>) -> Swift.Void) {
-        var assetList: Array<MYImagePickerItemModel> = Array()
+    public func getAssetListForAlbum(album: MYImagePickerAlbumModel, _ handle: @escaping ([MYImagePickerItemModel]) -> Swift.Void) {
+        var assetList:[MYImagePickerItemModel] = []
         
         DispatchQueue.global(qos: .default).async {
             let result: PHFetchResult = album.data!
@@ -383,9 +383,9 @@ class MYImagePickerManager: NSObject {
     /// - Parameters:
     ///   - isCameraRollOnly: 是否只是加载相机胶卷
     ///   - handle: 回调
-    private func loadPHCollectionWithCompletion(isCameraRollOnly: Bool, _ handle: @escaping (Array<MYImagePickerAlbumModel>) -> Swift.Void) {
+    private func loadPHCollectionWithCompletion(isCameraRollOnly: Bool, _ handle: @escaping ([MYImagePickerAlbumModel]) -> Swift.Void) {
         
-        var albumList: Array<MYImagePickerAlbumModel> = Array()
+        var albumList: [MYImagePickerAlbumModel] = []
         
         // 相册排序问题
         let predicate: NSPredicate = NSPredicate(format: "mediaType = %d", PHAssetMediaType.image.rawValue)

@@ -34,7 +34,7 @@ extension MYImagePickerAlbumModel {
     /// - Parameters:
     ///   - album: 相册数据
     ///   - handle: 图片数据集合
-    public func getAssetListForAlbum(_ handle: @escaping(Array<MYImagePickerItemModel>) -> Swift.Void) {
+    public func getAssetListForAlbum(_ handle: @escaping([MYImagePickerItemModel]) -> Swift.Void) {
         MYImagePickerManager.share().getAssetListForAlbum(album: self, handle)
     }
 }

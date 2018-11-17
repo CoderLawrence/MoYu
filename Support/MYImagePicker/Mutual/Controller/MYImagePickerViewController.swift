@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MYImagePickerViewDelegate: NSObjectProtocol {
+protocol MYImagePickerViewDelegate: class {
     
     /// 取消图片选择器
     ///
@@ -20,10 +20,10 @@ protocol MYImagePickerViewDelegate: NSObjectProtocol {
     /// - Parameters:
     ///   - imagePicker: 图片选择器
     ///   - images: 选中的图片集合
-    func didSelectedImage(imagePicker: MYImagePickerViewController, images:Array<MYImagePickerItemModel>?)
+    func didSelectedImage(imagePicker: MYImagePickerViewController, images:[MYImagePickerItemModel]?)
 }
 
-protocol MYImaegPickerViewDataSource: NSObjectProtocol {
+protocol MYImaegPickerViewDataSource: class {
     
 }
 
@@ -223,14 +223,14 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
     
     // MARK: - MYImagePickerViewModelDelegate
     
-    func didFinishLoadAlbumList(_ viewModel: MYImagePickerViewModel, _ list: Array<MYImagePickerAlbumModel>?) {
+    func didFinishLoadAlbumList(_ viewModel: MYImagePickerViewModel, _ list: [MYImagePickerAlbumModel]?) {
         if (list != nil && (list?.count)! > 0) {
             self.albumListView.albumList = list
             self.viewModel.loadAssetList(album: self.viewModel.currentAlbum!)
         }
     }
     
-    func didFinishLoadAssetList(_ viewModel: MYImagePickerViewModel, _ list: Array<MYImagePickerItemModel>?) {
+    func didFinishLoadAssetList(_ viewModel: MYImagePickerViewModel, _ list: [MYImagePickerItemModel]?) {
         if self.viewModel.currentAssetList.count > 0 {
             self.collectionView.reloadData()
         }

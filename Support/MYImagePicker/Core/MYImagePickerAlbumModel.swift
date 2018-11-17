@@ -9,7 +9,7 @@
 import Foundation
 import Photos
 
-class MYImagePickerAlbumModel: NSObject {
+public class MYImagePickerAlbumModel {
     
     /// 相册名称
     public var name: String?

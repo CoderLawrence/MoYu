@@ -8,22 +8,22 @@
 
 import UIKit
 
-protocol MYImagePickerViewModelDelegate: NSObjectProtocol {
-    func didFinishLoadAlbumList(_ viewModel: MYImagePickerViewModel, _ list:Array<MYImagePickerAlbumModel>?)
+public protocol MYImagePickerViewModelDelegate: class {
+    func didFinishLoadAlbumList(_ viewModel: MYImagePickerViewModel, _ list:[MYImagePickerAlbumModel]?)
     
-    func didFinishLoadAssetList(_ viewModel: MYImagePickerViewModel, _ list: Array<MYImagePickerItemModel>?)
+    func didFinishLoadAssetList(_ viewModel: MYImagePickerViewModel, _ list: [MYImagePickerItemModel]?)
 }
 
-class MYImagePickerViewModel: NSObject {
+public class MYImagePickerViewModel {
     
     /// 系统相册列表
-    public var albumList:Array<MYImagePickerAlbumModel> = Array()
+    public var albumList:[MYImagePickerAlbumModel] = []
     
     /// 当前选择的相册
     public var currentAlbum: MYImagePickerAlbumModel?
     
     /// 当前显示的相册照片列表
-    public var currentAssetList:Array<MYImagePickerItemModel> = Array()
+    public var currentAssetList:[MYImagePickerItemModel] = []
     
     /// 控制器
     public weak var viewController: UIViewController? = nil
@@ -31,9 +31,7 @@ class MYImagePickerViewModel: NSObject {
     /// 委托
     open weak var delegate: MYImagePickerViewModelDelegate?
     
-    override init() {
-        super.init()
-        
+    public init() {
         //设置图片排序方式
         MYImagePickerManager.share().isSortAscendingByModificationDate = true
     }

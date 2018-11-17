@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MYImagePickerAlbumListViewDelegate: NSObjectProtocol {
+protocol MYImagePickerAlbumListViewDelegate: class {
     func didSelectedAlbum(listView: MYImagePickerAlbumListView, albumItem: MYImagePickerAlbumModel)
 }
 
@@ -20,7 +20,7 @@ class MYImagePickerAlbumListView: UIControl, UITableViewDataSource, UITableViewD
     public weak var delegate: MYImagePickerAlbumListViewDelegate? = nil
     
     /// 相册列表数据
-    public var albumList: Array<MYImagePickerAlbumModel>? {
+    public var albumList: [MYImagePickerAlbumModel]? {
         didSet {
             if (self.albumList != nil && (self.albumList?.count)! > 0) {
                 self.tableView.reloadData()

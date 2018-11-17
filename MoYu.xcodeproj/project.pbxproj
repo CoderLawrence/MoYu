@@ -15,6 +15,7 @@
 		211AA7D3210F2F2400EE25B3 /* MYImagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211AA7D2210F2F2400EE25B3 /* MYImagePickerCell.swift */; };
 		211DF53321103ED400C91009 /* MYImagePickerBadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211DF53221103ED400C91009 /* MYImagePickerBadgeButton.swift */; };
 		211DF5352110408900C91009 /* MYImagePickerSubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211DF5342110408900C91009 /* MYImagePickerSubViewModel.swift */; };
+		2143CB76219FCF7700CDC39C /* MYImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143CB75219FCF7700CDC39C /* MYImagePicker.swift */; };
 		2161E76C210AC077001D2C99 /* MYImagePickerAlbumModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161E76B210AC077001D2C99 /* MYImagePickerAlbumModel+Extension.swift */; };
 		2161E76E210AC0CF001D2C99 /* MYImagePickerItemModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161E76D210AC0CF001D2C99 /* MYImagePickerItemModel+Extension.swift */; };
 		21824A4B210C716A008AA1F8 /* MoYuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21824A4A210C716A008AA1F8 /* MoYuTests.swift */; };
@@ -74,6 +75,7 @@
 		211AA7D2210F2F2400EE25B3 /* MYImagePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerCell.swift; sourceTree = "<group>"; };
 		211DF53221103ED400C91009 /* MYImagePickerBadgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerBadgeButton.swift; sourceTree = "<group>"; };
 		211DF5342110408900C91009 /* MYImagePickerSubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerSubViewModel.swift; sourceTree = "<group>"; };
+		2143CB75219FCF7700CDC39C /* MYImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePicker.swift; sourceTree = "<group>"; };
 		2161E76B210AC077001D2C99 /* MYImagePickerAlbumModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MYImagePickerAlbumModel+Extension.swift"; sourceTree = "<group>"; };
 		2161E76D210AC0CF001D2C99 /* MYImagePickerItemModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MYImagePickerItemModel+Extension.swift"; sourceTree = "<group>"; };
 		21824A48210C716A008AA1F8 /* MoYuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoYuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +304,7 @@
 		21EE6AEE20EF12290091D088 /* MYImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				2143CB75219FCF7700CDC39C /* MYImagePicker.swift */,
 				21E2B13321081365000AD858 /* Mutual */,
 				21E2B13221081353000AD858 /* Core */,
 				2161E76A210ABFDE001D2C99 /* Extensions */,
@@ -461,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21A5391E210B170A004586AA /* MYImagePickerViewController.swift in Sources */,
+				2143CB76219FCF7700CDC39C /* MYImagePicker.swift in Sources */,
 				210C431F2114BD6E00ED0375 /* UIViewController+MYImagePicker.swift in Sources */,
 				211A6700211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift in Sources */,
 				211AA7D3210F2F2400EE25B3 /* MYImagePickerCell.swift in Sources */,

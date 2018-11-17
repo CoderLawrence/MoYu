@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MYImagePickerAlbumSwitchButtonDelegate: NSObjectProtocol {
+protocol MYImagePickerAlbumSwitchButtonDelegate: class {
     
     /// 切换相册
     ///

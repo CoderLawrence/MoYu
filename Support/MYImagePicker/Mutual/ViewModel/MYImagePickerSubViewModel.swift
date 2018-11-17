@@ -9,7 +9,7 @@
 import UIKit
 import Photos
 
-protocol MYImagePickerSubViewModelDelegate: NSObjectProtocol {
+public protocol MYImagePickerSubViewModelDelegate: class {
     
     /// 图片请求完成
     ///
@@ -18,7 +18,7 @@ protocol MYImagePickerSubViewModelDelegate: NSObjectProtocol {
     func didFinishRequestImage(viewModel: MYImagePickerSubViewModel, image: UIImage?)
 }
 
-class MYImagePickerSubViewModel: NSObject {
+public class MYImagePickerSubViewModel {
     
     /// 图片标识
     private var identifier: String? = nil
@@ -50,12 +50,6 @@ class MYImagePickerSubViewModel: NSObject {
             
             return nil
         }
-    }
-    
-    // MARK: - init
-    
-    override init() {
-        super.init()
     }
     
     // MARK: - public func
