@@ -34,6 +34,7 @@
 		21EE6AF220EF12E40091D088 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EE6AF120EF12E30091D088 /* Photos.framework */; };
 		21EE6AF420EF299B0091D088 /* MYImagePickerAlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EE6AF320EF299B0091D088 /* MYImagePickerAlbumModel.swift */; };
 		21EE6AF620EF2D010091D088 /* MYImagePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EE6AF520EF2D010091D088 /* MYImagePickerItemModel.swift */; };
+		6DAF5FBF21A28A9C009F89D1 /* MYImagePickerConfiger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAF5FBE21A28A9C009F89D1 /* MYImagePickerConfiger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		21EE6AF120EF12E30091D088 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		21EE6AF320EF299B0091D088 /* MYImagePickerAlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerAlbumModel.swift; sourceTree = "<group>"; };
 		21EE6AF520EF2D010091D088 /* MYImagePickerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerItemModel.swift; sourceTree = "<group>"; };
+		6DAF5FBE21A28A9C009F89D1 /* MYImagePickerConfiger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerConfiger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				2143CB75219FCF7700CDC39C /* MYImagePicker.swift */,
+				6DAF5FBE21A28A9C009F89D1 /* MYImagePickerConfiger.swift */,
 				21E2B13321081365000AD858 /* Mutual */,
 				21E2B13221081353000AD858 /* Core */,
 				2161E76A210ABFDE001D2C99 /* Extensions */,
@@ -467,6 +470,7 @@
 				2143CB76219FCF7700CDC39C /* MYImagePicker.swift in Sources */,
 				210C431F2114BD6E00ED0375 /* UIViewController+MYImagePicker.swift in Sources */,
 				211A6700211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift in Sources */,
+				6DAF5FBF21A28A9C009F89D1 /* MYImagePickerConfiger.swift in Sources */,
 				211AA7D3210F2F2400EE25B3 /* MYImagePickerCell.swift in Sources */,
 				21A53920210B1C21004586AA /* MYImagePickerPreviewViewController.swift in Sources */,
 				211A6702211050D600A3247B /* MYImagePickerAlbumListView.swift in Sources */,

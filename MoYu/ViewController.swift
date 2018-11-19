@@ -8,18 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, MYImagePickerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         var albumList:Array<MYImagePickerAlbumModel> = Array()
-        MYImagePickerManager.share().getAlbumListWithCompletion { (albumList:[MYImagePickerAlbumModel]) in
+        MYImagePickerManager.share.getAlbumListWithCompletion { (albumList:[MYImagePickerAlbumModel]) in
             print(albumList.count)
         }
         
-        MYImagePickerManager.share().getCameraRollAlbumListWithCompletion { (list:[MYImagePickerAlbumModel]) in
+        MYImagePickerManager.share.getCameraRollAlbumListWithCompletion { (list:[MYImagePickerAlbumModel]) in
             
             if list.count == 0 { return }
             print("albumListCount = %d", list.count)
@@ -31,7 +30,7 @@ class ViewController: UIViewController {
                 print(image!)
             })
             
-            MYImagePickerManager.share().getAssetListForAlbum(album: list.first!, { (assetList:[MYImagePickerItemModel]) in
+            MYImagePickerManager.share.getAssetListForAlbum(album: list.first!, { (assetList:[MYImagePickerItemModel]) in
                 print(assetList.count)
 
                 let assetItem: MYImagePickerItemModel = assetList.first!
@@ -40,7 +39,7 @@ class ViewController: UIViewController {
             })
         }
         
-        MYImagePickerManager.share().saveImage(image: nil) { (isSuccess, eror) in
+        MYImagePickerManager.share.saveImage(image: nil) { (isSuccess, eror) in
             print("save image\(String(describing: eror))")
         }
         
@@ -57,7 +56,16 @@ class ViewController: UIViewController {
     }
     
     @objc private func onButtonPress() {
-        MYImagePickerViewController.show(in: self, delegate: nil)
+        let imagePicker: MYImagePicker = MYImagePicker(delegate: self)
+        imagePicker.show(self)
+    }
+    
+    func didFinishSelectedImage(imagePicker: MYImagePicker, images: [MYImagePickerItemModel]?) {
+        
+    }
+    
+    func cancel(imagePicker: MYImagePicker, isCancel: Bool) {
+        
     }
 }
 

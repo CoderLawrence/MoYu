@@ -20,17 +20,13 @@ public enum MYImagePickerAuthorizationStatus: Int {
 
 public class MYImagePickerManager {
     
-    // MARK: - 初始化
-    /// 单例实例
-    static let shareImagePicker: MYImagePickerManager = MYImagePickerManager()
-    
     /// 照片排序（YES表示升序，NO表示降序, 默认升序）
-    var isSortAscendingByModificationDate: Bool!
+    public var isSortAscendingByModificationDate: Bool = true
     
     /// 单例方法
-    public class func share() -> MYImagePickerManager {
-        return shareImagePicker
-    }
+    public static let `share`: MYImagePickerManager = {
+        return MYImagePickerManager()
+    }()
     
     /// 方法重载
     private init() {
@@ -393,7 +389,7 @@ public class MYImagePickerManager {
         option.predicate = predicate;
         
         if self.isSortAscendingByModificationDate == true {
-            option.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: self.isSortAscendingByModificationDate!)]
+            option.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: self.isSortAscendingByModificationDate)]
         }
         
         //获取相册数据

@@ -26,19 +26,22 @@ public class MYImagePickerViewModel {
     public var currentAssetList:[MYImagePickerItemModel] = []
     
     /// 控制器
-    public weak var viewController: UIViewController? = nil
+    public weak var viewController: UIViewController?
     
     /// 委托
-    open weak var delegate: MYImagePickerViewModelDelegate?
+    public weak var delegate: MYImagePickerViewModelDelegate?
+    
+    /// 相册配置
+    public var configer: MYImagePickerConfiger?
     
     public init() {
         //设置图片排序方式
-        MYImagePickerManager.share().isSortAscendingByModificationDate = true
+        MYImagePickerManager.share.isSortAscendingByModificationDate = true
     }
     
     /// 加载系统相册
     public func loadAlbumList() -> Void {
-        MYImagePickerManager.share().getAlbumListWithCompletion { (albumList) in
+        MYImagePickerManager.share.getAlbumListWithCompletion { (albumList) in
             if (albumList.count > 0) {
                 self.albumList.removeAll()
                 self.albumList.append(contentsOf: albumList)

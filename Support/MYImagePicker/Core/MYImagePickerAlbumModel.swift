@@ -14,13 +14,13 @@ public class MYImagePickerAlbumModel {
     /// 相册名称
     public var name: String?
     /// 照片个数
-    public var count: Int? = 0
+    public var count: Int?
     /// 线程原始数据
     public var data: PHFetchResult<AnyObject>?
     /// 相册标识
     public var identifier: String?
     /// 是否为相机胶卷
-    public var isCameraRoll: Bool? = false
+    public var isCameraRoll: Bool = false
     /// 相册封面
     public var thumbnailImage: UIImage?
     
