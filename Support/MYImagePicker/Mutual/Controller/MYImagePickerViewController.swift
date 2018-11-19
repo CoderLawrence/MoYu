@@ -111,7 +111,7 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
         
         let itemSpace: CGFloat = MYImagePickerCell.itemSpace
         let screenWidth: CGFloat = UIScreen.main.bounds.size.width
-        let itemWidth: CGFloat = CGFloat(floorf(Float((screenWidth - 3 * itemSpace - itemSpace * 2)/4)))
+        let itemWidth: CGFloat = CGFloat(floorf(Float((screenWidth - 2 * itemSpace - itemSpace * 2)/3)))
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)

@@ -27,6 +27,7 @@ class MYImagePickerCell: UICollectionViewCell, MYImagePickerSubViewModelDelegate
     
     func setupUI() {
         self.contentView.addSubview(self.imageView)
+        self.contentView.addSubview(self.selectedBadgeButton)
     }
     
     override func prepareForReuse() {
@@ -59,6 +60,15 @@ class MYImagePickerCell: UICollectionViewCell, MYImagePickerSubViewModelDelegate
         return imageView
     }()
     
+    lazy var selectedBadgeButton: MYImagePickerBadgeButton = {
+        () -> MYImagePickerBadgeButton in
+        let aButton = MYImagePickerBadgeButton.init(frame: CGRect(x: self.frame.size.width - 25 - 5, y: 5, width: 25, height: 25))
+        aButton .addTarget(self, action: #selector(onBadgeButtonClick), for: UIControl.Event.touchUpInside)
+        aButton.selectedBackgroundColor = UIColor.red
+        aButton.borderColor = UIColor.white
+        return aButton
+    }()
+    
     // MARK: - public func
     
     public func setAssetItem(item: MYImagePickerItemModel) {
@@ -72,5 +82,11 @@ class MYImagePickerCell: UICollectionViewCell, MYImagePickerSubViewModelDelegate
         if image != nil {
             self.imageView.image = image
         }
+    }
+    
+    //MARK: - 事件点击
+    @objc private func onBadgeButtonClick(sender: MYImagePickerBadgeButton) {
+        let isSelected = sender.isSelectedImage
+        sender.isSelectedImage = !isSelected
     }
 }
