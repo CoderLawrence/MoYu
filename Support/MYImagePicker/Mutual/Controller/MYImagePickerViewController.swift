@@ -14,7 +14,7 @@ public typealias MYImagePickerSelectedImageCallBack = (_ images:[MYImagePickerIt
 ///取消图片选择监听
 public typealias MYImagePickerCancelSelectedImageCallBack = (_ isCancel:Bool) -> Void
 
-class MYImagePickerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MYImagePickerViewModelDelegate, MYImagePickerAlbumSwitchButtonDelegate, MYImagePickerAlbumListViewDelegate {
+class MYImagePickerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MYImagePickerViewModelDelegate, MYImagePickerAlbumSwitchButtonDelegate, MYImagePickerAlbumListViewDelegate, MYImagePickerCellDelegate {
     
     ///图片选择器配置
     public var configer: MYImagePickerConfiger?
@@ -77,6 +77,8 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
         
         //barButtonItem
         self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
+        
+        self.navigationItem.rightBarButtonItem = self.rightBarButtonItem
         
         //collectionView
         self.collectionView.backgroundColor = UIColor.white
@@ -141,6 +143,13 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
         return item
     }()
     
+    private lazy var rightBarButtonItem: UIBarButtonItem = {
+        () -> UIBarButtonItem in
+        let item: UIBarButtonItem = UIBarButtonItem.init(title: "完成", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onRightBarButtonPress))
+        
+        return item
+    }()
+    
     /// 相册切换按钮
     private lazy var albumSwitchButton: MYImagePickerAlbumSwitchButton = {
         () -> MYImagePickerAlbumSwitchButton in
@@ -170,10 +179,16 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
         return tempListView
     }()
     
-    // MARK: - 闭包传值
+    // MARK: - 闭包传值回调
     func notifyImagePickerCancel() {
         if let onImagePicekerCancelCallBack = onCancelSelectedImageCallBack {
             onImagePicekerCancelCallBack(true)
+        }
+    }
+    
+    func notifyImageFinishSelected() {
+        if let onImagePickerFinishCallBack = onSelectedImageCallBack {
+            onImagePickerFinishCallBack(nil)
         }
     }
     
@@ -206,6 +221,7 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
         let cell: MYImagePickerCell = collectionView .dequeueReusableCell(withReuseIdentifier: kMYImagePickerCellReuseIdentifier, for: indexPath) as! MYImagePickerCell
         let assetItem: MYImagePickerItemModel = self.viewModel.currentAssetList[indexPath.row]
         cell.setAssetItem(item: assetItem)
+        cell.delegate = self
         
         return cell
     }
@@ -244,7 +260,23 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
         self.albumSwitchButton.packupAlbum()
     }
     
+    // MARK: - MYImagePickerCellDelegate
+    func canSelectImage(imagePickerCell: MYImagePickerCell) -> Bool {
+        return true
+    }
+    
+    func onSelectedImageBadgeNumber(imagePickerCell: MYImagePickerCell) -> Int {
+        return Int(arc4random() % 100) + 1
+    }
+    
+    func onClickSelectedImage(imagePickerCell: MYImagePickerCell, assetItem: MYImagePickerItemModel, isSelected: Bool) {
+        
+    }
+    
     // MARK: - action
+    @objc private func onAlbumListPress() {
+        self.albumSwitchButton.packupAlbum()
+    }
     
     @objc private func onLeftBarButtonPress() {
         self.navigationController?.dismiss(animated: true, completion: {
@@ -252,7 +284,9 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
         })
     }
     
-    @objc private func onAlbumListPress() {
-        self.albumSwitchButton.packupAlbum()
+    @objc func onRightBarButtonPress() {
+        self.navigationController?.dismiss(animated: true, completion: {
+            self.notifyImageFinishSelected()
+        })
     }
 }

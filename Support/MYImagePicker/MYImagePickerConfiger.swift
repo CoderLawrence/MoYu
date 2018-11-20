@@ -32,8 +32,4 @@ public class MYImagePickerConfiger {
     public class func defaultConfiger() -> MYImagePickerConfiger {
         return MYImagePickerConfiger();
     }
-    
-    public init() {
-        
-    }
 }

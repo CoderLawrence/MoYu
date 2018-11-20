@@ -11,10 +11,42 @@ import Photos
 
 let kMYImagePickerCellReuseIdentifier: String = "kMYImagePickerCellReuseIdentifier"
 
+protocol MYImagePickerCellDelegate: class {
+    
+    /// 是否可以继续选择图片
+    ///
+    /// - Parameter imagePickerCell: MYImagePickerCell
+    /// - Returns: 根据配置返回是否可以选择图片
+    func canSelectImage(imagePickerCell: MYImagePickerCell) -> Bool
+    
+    /// 选中图片角标
+    ///
+    /// - Parameter imagePickerCell: MYImagePickerCell
+    /// - Returns: 返回选中图片的角标
+    func onSelectedImageBadgeNumber(imagePickerCell: MYImagePickerCell) -> Int
+    
+    /// 选择\取消图片
+    ///
+    /// - Parameters:
+    ///   - imagePickerCell: MYImagePickerCell
+    ///   - assetItem: 选中图片数据
+    ///   - isSelected: 选中\取消（true or false）
+    func onClickSelectedImage(imagePickerCell: MYImagePickerCell, assetItem: MYImagePickerItemModel, isSelected: Bool)
+}
+
 class MYImagePickerCell: UICollectionViewCell, MYImagePickerSubViewModelDelegate {
     
     /// cell 间隙
     static let itemSpace: CGFloat = 5
+    
+    ///是否已经选中该图片
+    public var isSelectedImage: Bool = false
+    
+    ///图片原始数据
+    public var assetItem: MYImagePickerItemModel?
+    
+    /// 委托
+    public weak var delegate: MYImagePickerCellDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,6 +65,7 @@ class MYImagePickerCell: UICollectionViewCell, MYImagePickerSubViewModelDelegate
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        self.selectedBadgeButton.isSelectedImage = false
         self.viewModel.cancelImageRequest()
         self.viewModel.assetItem = nil
     }
@@ -72,6 +105,7 @@ class MYImagePickerCell: UICollectionViewCell, MYImagePickerSubViewModelDelegate
     // MARK: - public func
     
     public func setAssetItem(item: MYImagePickerItemModel) {
+        self.assetItem = item
         self.viewModel.assetItem = item
         self.viewModel.requestThumbanilImage(width: self.frame.size.width)
     }
@@ -86,7 +120,22 @@ class MYImagePickerCell: UICollectionViewCell, MYImagePickerSubViewModelDelegate
     
     //MARK: - 事件点击
     @objc private func onBadgeButtonClick(sender: MYImagePickerBadgeButton) {
-        let isSelected = sender.isSelectedImage
-        sender.isSelectedImage = !isSelected
+        if self.assetItem == nil { return }
+        if let delegate = self.delegate {
+            if (self.isSelectedImage == true) {
+                self.isSelectedImage = false
+                sender.isSelectedImage = false
+                delegate.onClickSelectedImage(imagePickerCell: self, assetItem: self.assetItem!, isSelected: false)
+            } else {
+                let canSelectImage: Bool = delegate.canSelectImage(imagePickerCell: self)
+                if (canSelectImage == true) {
+                    let badgeNumber: Int = delegate.onSelectedImageBadgeNumber(imagePickerCell: self)
+                    sender.badgeNumber = badgeNumber
+                    sender.isSelectedImage = true
+                    self.isSelectedImage = true
+                    delegate.onClickSelectedImage(imagePickerCell: self, assetItem: self.assetItem!, isSelected: true)
+                }
+            }
+        }
     }
 }

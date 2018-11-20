@@ -24,7 +24,7 @@ public final class MYImagePicker {
     public var configer: MYImagePickerConfiger?
     
     /// 委托
-    public var delegate: MYImagePickerDelegate? = nil
+    public var delegate: MYImagePickerDelegate?
     
     /// 初始化
     ///

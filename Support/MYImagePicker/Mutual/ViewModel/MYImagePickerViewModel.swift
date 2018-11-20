@@ -9,8 +9,19 @@
 import UIKit
 
 public protocol MYImagePickerViewModelDelegate: class {
+    
+    /// 图片库完成加载
+    ///
+    /// - Parameters:
+    ///   - viewModel: viewModel
+    ///   - list: 图片库列表
     func didFinishLoadAlbumList(_ viewModel: MYImagePickerViewModel, _ list:[MYImagePickerAlbumModel]?)
     
+    /// 相册完成加载
+    ///
+    /// - Parameters:
+    ///   - viewModel: viewModel
+    ///   - list: 相册图片列表
     func didFinishLoadAssetList(_ viewModel: MYImagePickerViewModel, _ list: [MYImagePickerItemModel]?)
 }
 

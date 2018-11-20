@@ -8,7 +8,7 @@
 
 import UIKit
 
-fileprivate let defaultBorderWidth: Float = 1
+fileprivate let defaultBorderWidth: CGFloat = 1
 fileprivate let badgeNumberLabelFontSize: CGFloat = 15.0
 
 class MYImagePickerBadgeButton: UIControl {
@@ -35,9 +35,9 @@ class MYImagePickerBadgeButton: UIControl {
     }
     
     /// 边框线条宽度
-    public var borderWidth: Float = defaultBorderWidth {
+    public var borderWidth: CGFloat = defaultBorderWidth {
         willSet {
-            self.layer.borderWidth = CGFloat(newValue)
+            self.layer.borderWidth = newValue
         }
     }
     
@@ -67,6 +67,8 @@ class MYImagePickerBadgeButton: UIControl {
     private func setupUI() {
         
         self.layer.masksToBounds = true
+        self.layer.borderWidth = self.borderWidth;
+        self.layer.borderColor = self.borderColor.cgColor
         self.layer.cornerRadius = self.frame.size.height/2
         self.backgroundColor = self.defaultBackgroundColor
         self.addSubview(self.badgeNumberLabel)

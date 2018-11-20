@@ -70,7 +70,7 @@ class MYImagePickerAlbumSwitchButton: UIControl {
         tempTitleLabel.textColor = UIColor.black
         tempTitleLabel.textAlignment = NSTextAlignment.center
         tempTitleLabel.lineBreakMode = NSLineBreakMode.byTruncatingTail
-        tempTitleLabel.font = UIFont.systemFont(ofSize: 16)
+        tempTitleLabel.font = UIFont.systemFont(ofSize: 18)
         tempTitleLabel.numberOfLines = 1
         
         return tempTitleLabel
