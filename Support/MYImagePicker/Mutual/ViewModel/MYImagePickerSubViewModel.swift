@@ -57,7 +57,7 @@ public class MYImagePickerSubViewModel {
     /// 取消图片加载
     public func cancelImageRequest() {
         if self.isRequesting {
-            MYImagePickerManager.share.cancelImageRequest(id: self.requestId)
+            MYImagePickerManager.shared.cancelImageRequest(id: self.requestId)
         }
     }
     
@@ -71,7 +71,7 @@ public class MYImagePickerSubViewModel {
         }
         
         self.isRequesting = true
-        let requestId: PHImageRequestID = MYImagePickerManager.share.getAssetThumbnailImage(item: self.assetItem!, width: width) { (identifier, image) in
+        let requestId: PHImageRequestID = MYImagePickerManager.shared.getAssetThumbnailImage(item: self.assetItem!, width: width) { (identifier, image) in
             
             self.isRequesting = false
             if (identifier == self.identifier && image != nil) {
