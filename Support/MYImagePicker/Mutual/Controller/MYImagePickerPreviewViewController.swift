@@ -10,6 +10,10 @@ import UIKit
 
 class MYImagePickerPreviewViewController: UIViewController {
     
+    /// 相册数据
+    public var images:[MYImagePickerItemModel]? = nil
+    
+    //MARK: - 初始化
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -28,12 +32,17 @@ class MYImagePickerPreviewViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - private func
-    
     /// 设置UI
     private func setupUI() {
-        
-        //设置背景颜色
-        self.view.backgroundColor = UIColor.white
+        self.view.addSubview(self.imageBrowserView)
+        self.view.backgroundColor = UIColor.black
     }
+    
+    private lazy var imageBrowserView: MYImagePickerBrowserView = {
+        () -> MYImagePickerBrowserView in
+        let aView = MYImagePickerBrowserView(frame: self.view.frame)
+        aView.images = self.images
+        
+        return aView
+    }()
 }
