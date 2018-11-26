@@ -61,7 +61,7 @@ class MYImagePickerAlbumListView: UIControl, UITableViewDataSource, UITableViewD
         let tempTableView: UITableView = UITableView()
         tempTableView.register(MYImagePickerAlbumCell.classForCoder(), forCellReuseIdentifier: kMYImagePickerAlbumCellReuseIdentifier)
         tempTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        tempTableView.backgroundColor = UIColor.white.withAlphaComponent(0)
+        tempTableView.backgroundColor = UIColor.white.withAlphaComponent(1)
         tempTableView.frame = CGRect.zero
         tempTableView.delegate = self
         tempTableView.dataSource = self
@@ -89,23 +89,17 @@ class MYImagePickerAlbumListView: UIControl, UITableViewDataSource, UITableViewD
             return
         }
         
-        UIView.animate(withDuration: 0.25) {
-            
-            self.isHidden = isPackUp
-            let maxY: CGFloat = self.tableView.frame.size.height
-            var tableViewFrame: CGRect = self.tableView.frame
-
+        let maxY: CGFloat = self.tableView.frame.size.height
+        UIView.animate(withDuration: 0.25, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut], animations: {
             if isPackUp {
-                tableViewFrame.origin.y -= maxY
-                self.tableView.frame = tableViewFrame
+                self.tableView.frame.origin.y -= maxY
                 self.backgroundColor = UIColor.black.withAlphaComponent(0)
-                self.tableView.backgroundColor = UIColor.white.withAlphaComponent(0)
             } else {
-                tableViewFrame.origin.y += maxY
-                self.tableView.frame = tableViewFrame
+                self.tableView.frame.origin.y += maxY
                 self.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-                self.tableView.backgroundColor = UIColor.white.withAlphaComponent(1)
             }
+        }) { (finish) in
+            self.isHidden = isPackUp
         }
     }
     
@@ -153,7 +147,7 @@ class MYImagePickerAlbumListView: UIControl, UITableViewDataSource, UITableViewD
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         if self.point(inside: point, with: event) {
             
-            let superViews: Array<UIView> = self.subviews
+            let superViews:[UIView] = self.subviews
             
             for i in (0..<superViews.count).reversed() {
                 let subView: UIView = superViews[i]
