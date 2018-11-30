@@ -32,6 +32,15 @@ class MYImagePickerAlbumSwitchButton: UIControl {
         }
     }
     
+    /// 标题颜色
+    public var titleColor: UIColor? {
+        willSet {
+            if (newValue != nil) {
+                self.titleLabel.textColor = newValue
+            }
+        }
+    }
+    
     /// 是否切换相册
     private var isSwitchAlbum: Bool = false
     

@@ -35,6 +35,8 @@
 		21EE6AF220EF12E40091D088 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EE6AF120EF12E30091D088 /* Photos.framework */; };
 		21EE6AF420EF299B0091D088 /* MYImagePickerAlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EE6AF320EF299B0091D088 /* MYImagePickerAlbumModel.swift */; };
 		21EE6AF620EF2D010091D088 /* MYImagePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EE6AF520EF2D010091D088 /* MYImagePickerItemModel.swift */; };
+		6D25722721B0E8620054D032 /* MYImagePickerBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D25722621B0E8620054D032 /* MYImagePickerBaseViewController.swift */; };
+		6D25722921B0E88B0054D032 /* MYImagePickerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D25722821B0E88B0054D032 /* MYImagePickerNavigationController.swift */; };
 		6DAF5FBF21A28A9C009F89D1 /* MYImagePickerConfiger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAF5FBE21A28A9C009F89D1 /* MYImagePickerConfiger.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +105,8 @@
 		21EE6AF120EF12E30091D088 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		21EE6AF320EF299B0091D088 /* MYImagePickerAlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerAlbumModel.swift; sourceTree = "<group>"; };
 		21EE6AF520EF2D010091D088 /* MYImagePickerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerItemModel.swift; sourceTree = "<group>"; };
+		6D25722621B0E8620054D032 /* MYImagePickerBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerBaseViewController.swift; sourceTree = "<group>"; };
+		6D25722821B0E88B0054D032 /* MYImagePickerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerNavigationController.swift; sourceTree = "<group>"; };
 		6DAF5FBE21A28A9C009F89D1 /* MYImagePickerConfiger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerConfiger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +218,7 @@
 		21E2B13321081365000AD858 /* Mutual */ = {
 			isa = PBXGroup;
 			children = (
+				6D25722321B0D8810054D032 /* Base */,
 				21A53922210B1E8C004586AA /* View */,
 				21824A62210C7CD5008AA1F8 /* ViewModel */,
 				21A53921210B1E7E004586AA /* Controller */,
@@ -316,6 +321,15 @@
 				2161E76A210ABFDE001D2C99 /* Extensions */,
 			);
 			path = MYImagePicker;
+			sourceTree = "<group>";
+		};
+		6D25722321B0D8810054D032 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				6D25722621B0E8620054D032 /* MYImagePickerBaseViewController.swift */,
+				6D25722821B0E88B0054D032 /* MYImagePickerNavigationController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,7 +504,9 @@
 				211DF53321103ED400C91009 /* MYImagePickerBadgeButton.swift in Sources */,
 				219DC2A72111F6740084DA5B /* UILabel+MYImagePicker.swift in Sources */,
 				2161E76C210AC077001D2C99 /* MYImagePickerAlbumModel+Extension.swift in Sources */,
+				6D25722921B0E88B0054D032 /* MYImagePickerNavigationController.swift in Sources */,
 				213EE94421AC48C1001C4D4B /* MYImagePickerBrowserView.swift in Sources */,
+				6D25722721B0E8620054D032 /* MYImagePickerBaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

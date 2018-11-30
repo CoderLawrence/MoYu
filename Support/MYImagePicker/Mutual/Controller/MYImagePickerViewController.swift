@@ -14,10 +14,10 @@ public typealias MYImagePickerSelectedImageCallBack = (_ images:[MYImagePickerIt
 ///取消图片选择监听
 public typealias MYImagePickerCancelSelectedImageCallBack = (_ isCancel:Bool) -> Void
 
-class MYImagePickerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MYImagePickerViewModelDelegate, MYImagePickerAlbumSwitchButtonDelegate, MYImagePickerAlbumListViewDelegate, MYImagePickerCellDelegate {
+class MYImagePickerViewController: MYImagePickerBaseViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MYImagePickerViewModelDelegate, MYImagePickerAlbumSwitchButtonDelegate, MYImagePickerAlbumListViewDelegate, MYImagePickerCellDelegate {
     
     ///图片选择器配置
-    public var configer: MYImagePickerConfiger?
+    public var configer: MYImagePickerConfiger? = MYImagePickerConfiger.defaultConfiger()
     
     /// 完成图片选择回调
     public var onSelectedImageCallBack: MYImagePickerSelectedImageCallBack?
@@ -26,15 +26,6 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
     public var onCancelSelectedImageCallBack: MYImagePickerCancelSelectedImageCallBack?
     
     // MARK: - init
-    
-    /// 显示相册
-    ///
-    /// - Parameter viewController: 要弹出相册的控制器
-    public func show(_ inViewController: UIViewController) {
-        let navigationController: UINavigationController = UINavigationController.init(rootViewController: self)
-        inViewController.present(navigationController, animated: true, completion: nil)
-    }
-    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -54,7 +45,6 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.setupNavigationBar(isTranslucent: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,16 +54,10 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
     
     private func setupUI() {
         
-        //设置导航栏背景颜色不透明
-        self.setupNavigationBar(isTranslucent: false)
-        
         //修正视图大小
         var viewFrame = self.view.frame
         viewFrame.size.height -= self.my_navigationAndStatusBarHeight()
         self.view.frame = viewFrame
-        
-        //background
-        self.view.backgroundColor = UIColor.white
         
         //barButtonItem
         self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
@@ -89,11 +73,6 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
         
         // 相册列表
         self.view.addSubview(self.albumListView)
-    }
-    
-    private func setupNavigationBar(isTranslucent: Bool) {
-        //设置导航栏不透明
-        self.navigationController?.navigationBar.isTranslucent = isTranslucent
     }
     
     // MARK: - lazy load
@@ -138,14 +117,14 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
     
     private lazy var leftBarButtonItem: UIBarButtonItem = {
        () -> UIBarButtonItem in
-        let item: UIBarButtonItem = UIBarButtonItem.init(title: "取消", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onLeftBarButtonPress))
+        let item: UIBarButtonItem = UIBarButtonItem.init(title: self.configer?.cancelButtonText, style: UIBarButtonItem.Style.plain, target: self, action: #selector(onLeftBarButtonPress))
         
         return item
     }()
     
     private lazy var rightBarButtonItem: UIBarButtonItem = {
         () -> UIBarButtonItem in
-        let item: UIBarButtonItem = UIBarButtonItem.init(title: "完成", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onRightBarButtonPress))
+        let item: UIBarButtonItem = UIBarButtonItem.init(title: self.configer?.confirmButtonText, style: UIBarButtonItem.Style.plain, target: self, action: #selector(onRightBarButtonPress))
         
         return item
     }()
@@ -288,5 +267,15 @@ class MYImagePickerViewController: UIViewController, UICollectionViewDataSource,
         self.navigationController?.dismiss(animated: true, completion: {
             self.notifyImageFinishSelected()
         })
+    }
+}
+
+extension MYImagePickerViewController {
+    /// 显示相册
+    ///
+    /// - Parameter viewController: 要弹出相册的控制器
+    public func show(_ inViewController: UIViewController) {
+        let navigationController = MYImagePickerNavigationController.init(rootViewController: self)
+        inViewController.present(navigationController, animated: true, completion: nil)
     }
 }
