@@ -16,21 +16,21 @@ extension MYImagePickerItemModel {
     /// - Parameter size: 限制大小
     /// - Returns: 图片
     public func imageForLimitSize(size: CGSize) -> UIImage? {
-        return MYImagePickerManager.shared.synchronusGetImageForLimitSize(item: self, limitSize: size)
+        return MYImagePickerManager.default.synchronusGetImageForLimitSize(item: self, limitSize: size)
     }
     
     /// 根据屏幕分辨率获取图片
     ///
     /// - Returns: 图片
     public func imageForFullScreen() -> UIImage? {
-        return MYImagePickerManager.shared.synchronousGetFullScreenImage(item: self)
+        return MYImagePickerManager.default.synchronousGetFullScreenImage(item: self)
     }
     
     /// 获取原图
     ///
     /// - Returns: 图片
     public func imageForOrigin() -> UIImage? {
-        return MYImagePickerManager.shared.synchronousGetOriginImage(item: self)
+        return MYImagePickerManager.default.synchronousGetOriginImage(item: self)
     }
     
     /// 根据大小获取图片，无方向限制
@@ -38,6 +38,6 @@ extension MYImagePickerItemModel {
     /// - Parameter size: 限制大小
     /// - Returns: 图片
     public func imageForWithoutOrientaion(size: CGSize) -> UIImage? {
-        return MYImagePickerManager.shared.synchronusGetImageForWithoutOritentation(item: self, limitSize: size)
+        return MYImagePickerManager.default.synchronusGetImageForWithoutOritentation(item: self, limitSize: size)
     }
 }

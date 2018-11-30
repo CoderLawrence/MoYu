@@ -14,11 +14,11 @@ class ViewController: UIViewController, MYImagePickerDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         var albumList:Array<MYImagePickerAlbumModel> = Array()
-        MYImagePickerManager.shared.getAlbumListWithCompletion { (albumList:[MYImagePickerAlbumModel]) in
+        MYImagePickerManager.default.getAlbumListWithCompletion { (albumList:[MYImagePickerAlbumModel]) in
             print(albumList.count)
         }
         
-        MYImagePickerManager.shared.getCameraRollAlbumListWithCompletion { (list:[MYImagePickerAlbumModel]) in
+        MYImagePickerManager.default.getCameraRollAlbumListWithCompletion { (list:[MYImagePickerAlbumModel]) in
             
             if list.count == 0 { return }
             print("albumListCount = %d", list.count)
@@ -30,7 +30,7 @@ class ViewController: UIViewController, MYImagePickerDelegate {
                 print(image!)
             })
             
-            MYImagePickerManager.shared.getAssetListForAlbum(album: list.first!, { (assetList:[MYImagePickerItemModel]) in
+            MYImagePickerManager.default.getAssetListForAlbum(album: list.first!, { (assetList:[MYImagePickerItemModel]) in
                 print(assetList.count)
 
                 let assetItem: MYImagePickerItemModel = assetList.first!
@@ -39,7 +39,7 @@ class ViewController: UIViewController, MYImagePickerDelegate {
             })
         }
         
-        MYImagePickerManager.shared.saveImage(image: nil) { (isSuccess, eror) in
+        MYImagePickerManager.default.saveImage(image: nil) { (isSuccess, eror) in
             print("save image\(String(describing: eror))")
         }
         

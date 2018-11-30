@@ -40,16 +40,18 @@ class MYImagePickerBrowserCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.imageView.image = nil
+        self.cancelRequestImage()
     }
     
     private func setupUI() {
-        self.addSubview(self.imageView)
+        self.contentView.addSubview(self.imageView)
     }
     
     //MARK: - 懒加载
     private lazy var imageView: UIImageView = {
         () -> UIImageView in
-        let imageView = UIImageView(frame: self.frame);
+        let frame = CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+        let imageView = UIImageView(frame: frame);
         imageView.contentMode = UIView.ContentMode.scaleAspectFit
         return imageView
     }()
@@ -57,7 +59,7 @@ class MYImagePickerBrowserCell: UICollectionViewCell {
     //MARK: - 图片获取
     private func requestImage() {
         if let assetItem = self.assetItem {
-            let requestId: PHImageRequestID = MYImagePickerManager.shared.getAssetThumbnailImage(item: assetItem, width: self.frame.size.width) { (identifier, image) in
+            let requestId: PHImageRequestID = MYImagePickerManager.default.getAssetThumbnailImage(item: assetItem, width: self.frame.size.width) { (identifier, image) in
                 
                 if (identifier == assetItem.identifier && image != nil) {
                     self.imageView.image = image
@@ -73,7 +75,7 @@ class MYImagePickerBrowserCell: UICollectionViewCell {
     
     private func cancelRequestImage() {
         if (self.requestId > 0) {
-            MYImagePickerManager.shared.cancelImageRequest(id: self.requestId)
+            MYImagePickerManager.default.cancelImageRequest(id: self.requestId)
             self.requestId = 0
         }
     }

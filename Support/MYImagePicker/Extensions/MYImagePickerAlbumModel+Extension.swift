@@ -21,7 +21,7 @@ extension MYImagePickerAlbumModel {
         
         if self.data == nil { return }
         
-        MYImagePickerManager.shared.asyncGetAlbumThumbailImage(item: self, size: CGSize(width: 260, height: 260), thumbnailLength: 80) { (identifier, image) in
+        MYImagePickerManager.default.asyncGetAlbumThumbailImage(item: self, size: CGSize(width: 260, height: 260), thumbnailLength: 80) { (identifier, image) in
             if image != nil {
                 handle(image)
                 self.thumbnailImage = image
@@ -35,6 +35,6 @@ extension MYImagePickerAlbumModel {
     ///   - album: 相册数据
     ///   - handle: 图片数据集合
     public func getAssetListForAlbum(_ handle: @escaping([MYImagePickerItemModel]) -> Swift.Void) {
-        MYImagePickerManager.shared.getAssetListForAlbum(album: self, handle)
+        MYImagePickerManager.default.getAssetListForAlbum(album: self, handle)
     }
 }

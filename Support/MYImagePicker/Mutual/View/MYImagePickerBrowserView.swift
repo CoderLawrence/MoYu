@@ -60,6 +60,10 @@ class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionVi
         aView.dataSource = self
         aView.delegate = self
         
+        if #available(iOS 11, *) {
+            aView.contentInsetAdjustmentBehavior = .never
+        }
+        
         return aView
     }()
     
@@ -86,6 +90,4 @@ class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionVi
         
         return cell
     }
-    
-    
 }

@@ -14,7 +14,7 @@ extension UIViewController {
     /// 获取导航栏+状态栏高度
     ///
     /// - Returns: 导航栏+状态栏高度
-    public func my_navigationAndStatusBarHeight() -> CGFloat {
+    public func MY_navigationAndStatusBarHeight() -> CGFloat {
         let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
         let navigationBarHeight: CGFloat = (self.navigationController?.navigationBar.frame.height)!
         let navigationAndStatusBarHeight: CGFloat = statusBarHeight + navigationBarHeight

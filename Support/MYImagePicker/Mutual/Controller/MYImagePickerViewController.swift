@@ -56,7 +56,7 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
         
         //修正视图大小
         var viewFrame = self.view.frame
-        viewFrame.size.height -= self.my_navigationAndStatusBarHeight()
+        viewFrame.size.height -= self.MY_navigationAndStatusBarHeight()
         self.view.frame = viewFrame
         
         //barButtonItem

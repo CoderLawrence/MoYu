@@ -24,7 +24,7 @@ public class MYImagePickerManager {
     public var isSortAscendingByModificationDate: Bool = true
     
     /// 单例方法
-    public static let `shared`: MYImagePickerManager = {
+    public static let `default`: MYImagePickerManager = {
         return MYImagePickerManager()
     }()
     

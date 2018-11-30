@@ -47,12 +47,12 @@ public class MYImagePickerViewModel {
     
     public init() {
         //设置图片排序方式
-        MYImagePickerManager.shared.isSortAscendingByModificationDate = true
+        MYImagePickerManager.default.isSortAscendingByModificationDate = true
     }
     
     /// 加载系统相册
     public func loadAlbumList() -> Void {
-        MYImagePickerManager.shared.getAlbumListWithCompletion { (albumList) in
+        MYImagePickerManager.default.getAlbumListWithCompletion { (albumList) in
             if (albumList.count > 0) {
                 self.albumList.removeAll()
                 self.albumList.append(contentsOf: albumList)
