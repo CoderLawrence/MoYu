@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MYImagePickerPreviewViewController: UIViewController {
+class MYImagePickerPreviewViewController: MYImagePickerBaseViewController {
     
     /// 相册数据
     public var images:[MYImagePickerItemModel]? = nil

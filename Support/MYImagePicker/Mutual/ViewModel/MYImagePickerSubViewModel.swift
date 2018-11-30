@@ -27,7 +27,7 @@ public class MYImagePickerSubViewModel {
     private var isRequesting: Bool = false
     
     /// 图片请求ID
-    private var requestId: PHImageRequestID = PHInvalidImageRequestID
+    private var requestId: PHImageRequestID = 0
     
     /// 委托
     public weak var delegate: MYImagePickerSubViewModelDelegate? = nil
@@ -82,7 +82,7 @@ public class MYImagePickerSubViewModel {
                 }
             }
             
-            self.requestId = PHInvalidImageRequestID
+            self.requestId = 0
         }
         
         self.requestId = requestId

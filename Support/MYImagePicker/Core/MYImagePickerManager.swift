@@ -201,9 +201,10 @@ public class MYImagePickerManager {
     ///   - item: 图片数据
     ///   - handle: 回调
     /// - Returns: 图片请求Id
+    @discardableResult
     public func getAssetFullScreenImage(item: MYImagePickerItemModel, _ handle: @escaping (_ identifier: String?, _ image: UIImage?) -> Swift.Void) -> PHImageRequestID {
         
-        var requestId: PHImageRequestID = PHInvalidImageRequestID
+        var requestId: PHImageRequestID = 0
         //判断图片数据是否存在
         guard item.data != nil else { return requestId }
         //校验数据是否正确

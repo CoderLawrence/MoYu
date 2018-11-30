@@ -37,6 +37,7 @@
 		21EE6AF620EF2D010091D088 /* MYImagePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EE6AF520EF2D010091D088 /* MYImagePickerItemModel.swift */; };
 		6D25722721B0E8620054D032 /* MYImagePickerBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D25722621B0E8620054D032 /* MYImagePickerBaseViewController.swift */; };
 		6D25722921B0E88B0054D032 /* MYImagePickerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D25722821B0E88B0054D032 /* MYImagePickerNavigationController.swift */; };
+		6D25722B21B127260054D032 /* MYImagePickerBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D25722A21B127260054D032 /* MYImagePickerBrowserCell.swift */; };
 		6DAF5FBF21A28A9C009F89D1 /* MYImagePickerConfiger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAF5FBE21A28A9C009F89D1 /* MYImagePickerConfiger.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		21EE6AF520EF2D010091D088 /* MYImagePickerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerItemModel.swift; sourceTree = "<group>"; };
 		6D25722621B0E8620054D032 /* MYImagePickerBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerBaseViewController.swift; sourceTree = "<group>"; };
 		6D25722821B0E88B0054D032 /* MYImagePickerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerNavigationController.swift; sourceTree = "<group>"; };
+		6D25722A21B127260054D032 /* MYImagePickerBrowserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerBrowserCell.swift; sourceTree = "<group>"; };
 		6DAF5FBE21A28A9C009F89D1 /* MYImagePickerConfiger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerConfiger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,6 +202,7 @@
 				211A6701211050D600A3247B /* MYImagePickerAlbumListView.swift */,
 				211A66FF211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift */,
 				213EE94321AC48C1001C4D4B /* MYImagePickerBrowserView.swift */,
+				6D25722A21B127260054D032 /* MYImagePickerBrowserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				2161E76E210AC0CF001D2C99 /* MYImagePickerItemModel+Extension.swift in Sources */,
 				21EE6AF020EF127B0091D088 /* MYImagePickerManager.swift in Sources */,
 				21EE6AF420EF299B0091D088 /* MYImagePickerAlbumModel.swift in Sources */,
+				6D25722B21B127260054D032 /* MYImagePickerBrowserCell.swift in Sources */,
 				21824A61210C7CCA008AA1F8 /* MYImagePickerViewModel.swift in Sources */,
 				21EE6ABB20EF0DF50091D088 /* ViewController.swift in Sources */,
 				21EE6AF620EF2D010091D088 /* MYImagePickerItemModel.swift in Sources */,
