@@ -34,7 +34,7 @@ class ViewController: UIViewController, MYImagePickerDelegate {
                 print(assetList.count)
 
                 let assetItem: MYImagePickerItemModel = assetList.first!
-                let image: UIImage = assetItem.originImage!
+                guard let image = assetItem.originImage else { return }
                 print(image)
             })
         }
@@ -48,6 +48,9 @@ class ViewController: UIViewController, MYImagePickerDelegate {
         button.setTitle("相册", for: UIControl.State.normal)
         button.setTitleColor(UIColor.black, for: UIControl.State.normal)
         self.view.addSubview(button)
+        
+        print("isPhoneXSeries = \(isIPhoneXSeries)")
+        print("safeBottom = \(iphoneXSeriesBottom)")
     }
 
     override func didReceiveMemoryWarning() {

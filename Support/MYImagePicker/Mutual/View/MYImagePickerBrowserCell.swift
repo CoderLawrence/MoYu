@@ -56,6 +56,13 @@ class MYImagePickerBrowserCell: UICollectionViewCell {
         return imageView
     }()
     
+    private lazy var scrollView: UIScrollView = {
+        () -> UIScrollView in
+        let frame = CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+        let scrollView: UIScrollView = UIScrollView.init(frame: frame)
+        return scrollView
+    }()
+    
     //MARK: - 图片获取
     private func requestImage() {
         if let assetItem = self.assetItem {

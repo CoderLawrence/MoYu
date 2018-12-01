@@ -14,7 +14,7 @@ extension UILabel {
     /// 获取文字宽度
     ///
     /// - Returns: 文字宽度
-    public func my_textWidth() -> CGFloat {
+    public func textWidth() -> CGFloat {
         var stringWidth: CGFloat = 0
         let size = CGSize(width: CGFloat(MAXFLOAT), height: CGFloat(MAXFLOAT))
         

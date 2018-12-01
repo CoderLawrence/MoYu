@@ -1,5 +1,5 @@
 //
-//  MYImagePickerPreviewViewController.swift
+//  MYImagePickerBrowserViewController.swift
 //  MoYu
 //  相册图片预览页面
 //  Created by Lawrence on 2018/7/27.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MYImagePickerPreviewViewController: MYImagePickerBaseViewController {
+class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
     
     /// 相册数据
     public var images:[MYImagePickerItemModel]? = nil

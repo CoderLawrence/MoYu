@@ -84,7 +84,7 @@ class MYImagePickerAlbumCell: UITableViewCell {
     private lazy var albumTitleLabel: UILabel = {
         () -> UILabel in
         let height: CGFloat = 30
-        let width: CGFloat = UIScreen.main.bounds.size.width - self.albumImageView.frame.size.width - 16 * 2
+        let width: CGFloat = screenWidth - self.albumImageView.frame.size.width - 16 * 2
         let marginX: CGFloat = self.albumImageView.frame.maxX + 16
         let marginY: CGFloat = self.albumImageView.frame.minY
         let tempTitleLabel: UILabel = UILabel.init(frame: CGRect(x: marginX, y: marginY, width: width, height: height))
@@ -101,7 +101,7 @@ class MYImagePickerAlbumCell: UITableViewCell {
     private lazy var photoCountLabel: UILabel = {
         () -> UILabel in
         let height: CGFloat = 20
-        let width: CGFloat = UIScreen.main.bounds.size.width - self.albumImageView.frame.size.width - 16 * 2
+        let width: CGFloat = screenWidth - self.albumImageView.frame.size.width - 16 * 2
         let marginX: CGFloat = self.albumImageView.frame.maxX + 16
         let marginY: CGFloat = self.albumTitleLabel.frame.maxY
         let tempLabel: UILabel = UILabel.init(frame: CGRect(x: marginX, y: marginY, width: width, height: height))

@@ -121,7 +121,7 @@ public class MYImagePickerManager {
         DispatchQueue.global(qos: .default).async {
             let result: PHFetchResult = album.data!
             
-            result .enumerateObjects({ (data, start, stop) in
+            result.enumerateObjects({ (data, start, stop) in
                 let assetData: PHAsset = data as! PHAsset
                 let item: MYImagePickerItemModel = MYImagePickerItemModel.createItem(data: assetData, identifier: assetData.localIdentifier)
                 assetList.append(item)
@@ -142,6 +142,7 @@ public class MYImagePickerManager {
     ///   - width: 图片的宽度
     ///   - handle: 回调
     /// - Returns: 图片请求Id
+    @discardableResult
     public func getAssetThumbnailImage(item: MYImagePickerItemModel, width: CGFloat, _ handle: @escaping (_ identifier: String?, _ image: UIImage?) -> Swift.Void) -> PHImageRequestID {
         
         // 获取图片的Id
@@ -217,13 +218,12 @@ public class MYImagePickerManager {
         requestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.opportunistic
         
         //计算图片大小
-        let multiple: CGFloat = UIScreen.main.scale
-        let width: CGFloat = UIScreen.main.bounds.size.width
+        let multiple: CGFloat = screenScale
+        let width: CGFloat = screenWidth
         let ratio: CGFloat = CGFloat((item.data?.pixelWidth)!/(item.data?.pixelHeight)!)
         let pixelWidth: CGFloat = width * multiple
         let pixelHeight: CGFloat = CGFloat(pixelWidth/ratio)
         
-        //deliveryMode = PHImageRequestOptionsDeliveryMode.opportunistic 默认异步线程获取图片
         requestId = PHImageManager.default().requestImage(for: item.data!, targetSize: CGSize.init(width: pixelWidth, height: pixelHeight), contentMode: PHImageContentMode.aspectFill, options: requestOptions, resultHandler: { (image, info) in
             let isDownload: Bool = (info![PHImageCancelledKey] == nil && info![PHImageErrorKey] == nil)
             if (image != nil && isDownload) {
@@ -242,9 +242,9 @@ public class MYImagePickerManager {
     /// - Returns: 图片数据
     /// - Throws: 获取错误异常
     public func synchronousGetFullScreenImage(item: MYImagePickerItemModel) -> UIImage? {
-        let scale: CGFloat = UIScreen.main.scale
-        let width: CGFloat = CGFloat(UIScreen.main.bounds.size.width * scale)
-        let height: CGFloat = CGFloat(UIScreen.main.bounds.size.height * scale)
+        let scale: CGFloat = screenScale
+        let width: CGFloat = CGFloat(screenWidth * scale)
+        let height: CGFloat = CGFloat(screenHeight * scale)
         return self.synchronusGetImageForTargetSize(item: item, targetSize: CGSize(width: width, height: height))
     }
     

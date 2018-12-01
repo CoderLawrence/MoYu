@@ -79,7 +79,7 @@ class MYImagePickerAlbumSwitchButton: UIControl {
         tempTitleLabel.textColor = UIColor.black
         tempTitleLabel.textAlignment = NSTextAlignment.center
         tempTitleLabel.lineBreakMode = NSLineBreakMode.byTruncatingTail
-        tempTitleLabel.font = UIFont.systemFont(ofSize: 18)
+        tempTitleLabel.font = UIFont.boldSystemFont(ofSize: 16)
         tempTitleLabel.numberOfLines = 1
         
         return tempTitleLabel
@@ -113,7 +113,7 @@ class MYImagePickerAlbumSwitchButton: UIControl {
         let height: CGFloat = self.frame.size.height
 
         //标题
-        let titleWidth: CGFloat = self.titleLabel.my_textWidth()
+        let titleWidth: CGFloat = self.titleLabel.textWidth()
         let x: CGFloat = (width - titleWidth - self.arrowImageView.frame.size.width)/2
         
         let titleLabelFrame: CGRect = CGRect(x: x, y: 0, width: titleWidth, height: height)
@@ -131,8 +131,8 @@ class MYImagePickerAlbumSwitchButton: UIControl {
     private func dealAlbumSwitch() {
         if self.isSwitchAlbum {
             self.isSwitchAlbum = false
-            if (self.delegate != nil) {
-                self.delegate?.didSwitchAlbum(switchButton: self, isSwitch: self.isSwitchAlbum)
+            if let delegate = self.delegate {
+                delegate.didSwitchAlbum(switchButton: self, isSwitch: self.isSwitchAlbum)
             }
             
             UIView.animate(withDuration: 0.25) {
@@ -140,8 +140,8 @@ class MYImagePickerAlbumSwitchButton: UIControl {
             }
         } else {
             self.isSwitchAlbum = true
-            if (self.delegate != nil) {
-                self.delegate?.didSwitchAlbum(switchButton: self, isSwitch: self.isSwitchAlbum)
+            if let delegate = self.delegate {
+                delegate.didSwitchAlbum(switchButton: self, isSwitch: self.isSwitchAlbum)
             }
             
             UIView.animate(withDuration: 0.25) {

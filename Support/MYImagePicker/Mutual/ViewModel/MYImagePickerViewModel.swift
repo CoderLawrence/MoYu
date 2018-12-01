@@ -88,7 +88,7 @@ public class MYImagePickerViewModel {
     public func onClickToPreviewAssetItem(index: Int) {
         if self.viewController == nil { return }
         
-        let vc: MYImagePickerPreviewViewController = MYImagePickerPreviewViewController()
+        let vc: MYImagePickerBrowserViewController = MYImagePickerBrowserViewController()
         vc.images = self.currentAssetList
         self.viewController?.navigationController?.pushViewController(vc, animated: true)
     }

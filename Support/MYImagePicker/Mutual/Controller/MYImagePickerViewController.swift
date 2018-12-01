@@ -56,7 +56,7 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
         
         //修正视图大小
         var viewFrame = self.view.frame
-        viewFrame.size.height -= self.MY_navigationAndStatusBarHeight()
+        viewFrame.size.height -= statusBarAndNavigationBarHeight
         self.view.frame = viewFrame
         
         //barButtonItem
@@ -91,7 +91,6 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
       () -> UICollectionViewFlowLayout in
         
         let itemSpace: CGFloat = MYImagePickerCell.itemSpace
-        let screenWidth: CGFloat = UIScreen.main.bounds.size.width
         let itemWidth: CGFloat = CGFloat(floorf(Float((screenWidth - 2 * itemSpace - itemSpace * 2)/3)))
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
@@ -134,7 +133,7 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
         () -> MYImagePickerAlbumSwitchButton in
         
         let height = 30
-        let width: Int = Int(UIScreen.main.bounds.size.width)
+        let width: Int = Int(screenWidth)
         let tempButton: MYImagePickerAlbumSwitchButton = MYImagePickerAlbumSwitchButton()
         tempButton.frame = CGRect.init(x: width/2, y: 0, width: width, height: height)
         tempButton.delegate = self
@@ -216,6 +215,7 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
         if (list != nil && (list?.count)! > 0) {
             self.albumListView.albumList = list
             self.viewModel.loadAssetList(album: self.viewModel.currentAlbum!)
+            self.albumSwitchButton.title = self.viewModel.currentAlbum?.name
         }
     }
     
