@@ -90,4 +90,18 @@ class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionVi
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if cell.isKind(of: MYImagePickerBrowserCell.classForCoder()) {
+            let imageCell = cell as! MYImagePickerBrowserCell
+            imageCell.recoverNormalSize()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if cell.isKind(of: MYImagePickerBrowserCell.classForCoder()) {
+            let imageCell = cell as! MYImagePickerBrowserCell
+            imageCell.recoverNormalSize()
+        }
+    }
 }

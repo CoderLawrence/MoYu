@@ -86,10 +86,9 @@ public class MYImagePickerViewModel {
     ///
     /// - Parameter index: 图片索引
     public func onClickToPreviewAssetItem(index: Int) {
-        if self.viewController == nil { return }
-        
+        guard let viewController = self.viewController else { return }
         let vc: MYImagePickerBrowserViewController = MYImagePickerBrowserViewController()
         vc.images = self.currentAssetList
-        self.viewController?.navigationController?.pushViewController(vc, animated: true)
+        viewController.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		210E4F2B211351C9005604F8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210E4F2A211351C8005604F8 /* AVFoundation.framework */; };
 		211318C821B2BDDA0052DEF9 /* MYImagePickerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211318C721B2BDDA0052DEF9 /* MYImagePickerConstants.swift */; };
+		211318CA21B2F23E0052DEF9 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211318C921B2F23E0052DEF9 /* UIKit+Extension.swift */; };
+		2113EE5721B375FA00D09BD4 /* MYImagePickerDetectingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113EE5621B375FA00D09BD4 /* MYImagePickerDetectingImageView.swift */; };
+		2113EE5921B37D0600D09BD4 /* MYImagePickerDetectingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113EE5821B37D0600D09BD4 /* MYImagePickerDetectingView.swift */; };
 		2118453D2112D4EC00C313D4 /* MYImagePickerAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2118453C2112D4EC00C313D4 /* MYImagePickerAlbumCell.swift */; };
 		211A6700211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211A66FF211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift */; };
 		211A6702211050D600A3247B /* MYImagePickerAlbumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211A6701211050D600A3247B /* MYImagePickerAlbumListView.swift */; };
@@ -74,6 +77,9 @@
 /* Begin PBXFileReference section */
 		210E4F2A211351C8005604F8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		211318C721B2BDDA0052DEF9 /* MYImagePickerConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerConstants.swift; sourceTree = "<group>"; };
+		211318C921B2F23E0052DEF9 /* UIKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
+		2113EE5621B375FA00D09BD4 /* MYImagePickerDetectingImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MYImagePickerDetectingImageView.swift; sourceTree = "<group>"; };
+		2113EE5821B37D0600D09BD4 /* MYImagePickerDetectingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerDetectingView.swift; sourceTree = "<group>"; };
 		2118453C2112D4EC00C313D4 /* MYImagePickerAlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerAlbumCell.swift; sourceTree = "<group>"; };
 		211A66FF211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerAlbumSwitchButton.swift; sourceTree = "<group>"; };
 		211A6701211050D600A3247B /* MYImagePickerAlbumListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerAlbumListView.swift; sourceTree = "<group>"; };
@@ -142,6 +148,7 @@
 		2161E76A210ABFDE001D2C99 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				211318C921B2F23E0052DEF9 /* UIKit+Extension.swift */,
 				219DC2A62111F6740084DA5B /* UILabel+MYImagePicker.swift */,
 				2161E76D210AC0CF001D2C99 /* MYImagePickerItemModel+Extension.swift */,
 				2161E76B210AC077001D2C99 /* MYImagePickerAlbumModel+Extension.swift */,
@@ -202,6 +209,8 @@
 				211A66FF211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift */,
 				213EE94321AC48C1001C4D4B /* MYImagePickerBrowserView.swift */,
 				6D25722A21B127260054D032 /* MYImagePickerBrowserCell.swift */,
+				2113EE5821B37D0600D09BD4 /* MYImagePickerDetectingView.swift */,
+				2113EE5621B375FA00D09BD4 /* MYImagePickerDetectingImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -491,11 +500,14 @@
 				211A6700211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift in Sources */,
 				6DAF5FBF21A28A9C009F89D1 /* MYImagePickerConfiger.swift in Sources */,
 				211AA7D3210F2F2400EE25B3 /* MYImagePickerCell.swift in Sources */,
+				2113EE5721B375FA00D09BD4 /* MYImagePickerDetectingImageView.swift in Sources */,
 				21A53920210B1C21004586AA /* MYImagePickerBrowserViewController.swift in Sources */,
+				211318CA21B2F23E0052DEF9 /* UIKit+Extension.swift in Sources */,
 				211A6702211050D600A3247B /* MYImagePickerAlbumListView.swift in Sources */,
 				2118453D2112D4EC00C313D4 /* MYImagePickerAlbumCell.swift in Sources */,
 				2161E76E210AC0CF001D2C99 /* MYImagePickerItemModel+Extension.swift in Sources */,
 				21EE6AF020EF127B0091D088 /* MYImagePickerManager.swift in Sources */,
+				2113EE5921B37D0600D09BD4 /* MYImagePickerDetectingView.swift in Sources */,
 				21EE6AF420EF299B0091D088 /* MYImagePickerAlbumModel.swift in Sources */,
 				6D25722B21B127260054D032 /* MYImagePickerBrowserCell.swift in Sources */,
 				21824A61210C7CCA008AA1F8 /* MYImagePickerViewModel.swift in Sources */,
