@@ -190,13 +190,12 @@
 			path = HomePage;
 			sourceTree = "<group>";
 		};
-		21A53921210B1E7E004586AA /* Controller */ = {
+		21A53921210B1E7E004586AA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				21A5391D210B170A004586AA /* MYImagePickerViewController.swift */,
-				21A5391F210B1C21004586AA /* MYImagePickerBrowserViewController.swift */,
 			);
-			path = Controller;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		21A53922210B1E8C004586AA /* View */ = {
@@ -207,10 +206,6 @@
 				211DF53221103ED400C91009 /* MYImagePickerBadgeButton.swift */,
 				211A6701211050D600A3247B /* MYImagePickerAlbumListView.swift */,
 				211A66FF211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift */,
-				213EE94321AC48C1001C4D4B /* MYImagePickerBrowserView.swift */,
-				6D25722A21B127260054D032 /* MYImagePickerBrowserCell.swift */,
-				2113EE5821B37D0600D09BD4 /* MYImagePickerDetectingView.swift */,
-				2113EE5621B375FA00D09BD4 /* MYImagePickerDetectingImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,9 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				6D25722321B0D8810054D032 /* Base */,
-				21A53922210B1E8C004586AA /* View */,
-				21824A62210C7CD5008AA1F8 /* ViewModel */,
-				21A53921210B1E7E004586AA /* Controller */,
+				6DF45BC021B7ACB500C32A7F /* ImagePicker */,
+				6DF45BC121B7ACC300C32A7F /* ImageBrowser */,
 			);
 			path = Mutual;
 			sourceTree = "<group>";
@@ -342,6 +336,44 @@
 				6D25722821B0E88B0054D032 /* MYImagePickerNavigationController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		6DF45BC021B7ACB500C32A7F /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				21A53922210B1E8C004586AA /* View */,
+				21824A62210C7CD5008AA1F8 /* ViewModel */,
+				21A53921210B1E7E004586AA /* ViewController */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		6DF45BC121B7ACC300C32A7F /* ImageBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				6DF45BC221B7AD0100C32A7F /* View */,
+				6DF45BC321B7AD0B00C32A7F /* ViewController */,
+			);
+			path = ImageBrowser;
+			sourceTree = "<group>";
+		};
+		6DF45BC221B7AD0100C32A7F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				213EE94321AC48C1001C4D4B /* MYImagePickerBrowserView.swift */,
+				6D25722A21B127260054D032 /* MYImagePickerBrowserCell.swift */,
+				2113EE5821B37D0600D09BD4 /* MYImagePickerDetectingView.swift */,
+				2113EE5621B375FA00D09BD4 /* MYImagePickerDetectingImageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6DF45BC321B7AD0B00C32A7F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				21A5391F210B1C21004586AA /* MYImagePickerBrowserViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

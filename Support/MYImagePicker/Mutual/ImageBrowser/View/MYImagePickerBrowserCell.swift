@@ -9,12 +9,20 @@
 import UIKit
 import Photos
 
+protocol MYImagePickerBrowserCellDelegate: class {
+    ///图片放大委托
+    func onZoomImageView(isZoomIn:Bool)
+}
+
 class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYImagePickerDetectingImageViewDelegate {
     
     private let kPhotoMarginX: CGFloat = 10.0
     
     ///图片获取ID
     private var requestId: PHImageRequestID = 0
+    
+    ///委托
+    public weak var delegate:MYImagePickerBrowserCellDelegate?
     
     ///相册数据
     public var assetItem: MYImagePickerItemModel? {
@@ -44,6 +52,7 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYIm
         super.prepareForReuse()
         self.imageView.image = nil
         self.cancelRequestImage()
+        self.scrollView.contentSize = self.scrollView.size
     }
     
     private func setupUI() {
@@ -81,6 +90,10 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYIm
     }()
     
     //MARK: - UIScrollViewDelegate
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        self.refreshImageViewCenter()
+    }
+    
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return self.imageView
     }
@@ -89,8 +102,10 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYIm
         scrollView.contentInset = UIEdgeInsets.zero
     }
     
-    func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        self.refreshImageViewCenter()
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        if let delegate = self.delegate {
+            delegate.onZoomImageView(isZoomIn: scale > 1.0)
+        }
     }
     
     //MARK: - MYImagePickerDetectingImageViewDelegate

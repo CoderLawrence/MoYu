@@ -10,7 +10,7 @@ import UIKit
 
 fileprivate let imageBroswerIdentifier = "MYImagePickerBroswerCellIdentifier"
 
-class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
+class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, MYImagePickerBrowserCellDelegate {
     
     public var images:[MYImagePickerItemModel]? {
         willSet {
@@ -87,6 +87,7 @@ class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MYImagePickerBrowserCell = collectionView.dequeueReusableCell(withReuseIdentifier: imageBroswerIdentifier, for: indexPath) as! MYImagePickerBrowserCell
         cell.assetItem = self.images![indexPath.row]
+        cell.delegate = self
         
         return cell
     }
@@ -103,5 +104,10 @@ class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionVi
             let imageCell = cell as! MYImagePickerBrowserCell
             imageCell.recoverNormalSize()
         }
+    }
+    
+    //MARK: - MYImagePickerBrowserCellDelegate
+    func onZoomImageView(isZoomIn: Bool) {
+        self.collectionView.isScrollEnabled = !isZoomIn
     }
 }
