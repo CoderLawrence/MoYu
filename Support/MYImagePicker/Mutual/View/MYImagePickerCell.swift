@@ -120,12 +120,12 @@ class MYImagePickerCell: UICollectionViewCell, MYImagePickerSubViewModelDelegate
     
     //MARK: - 事件点击
     @objc private func onBadgeButtonClick(sender: MYImagePickerBadgeButton) {
-        if self.assetItem == nil { return }
+        guard let assetItem = self.assetItem else { return }
         if let delegate = self.delegate {
             if (self.isSelectedImage == true) {
                 self.isSelectedImage = false
                 sender.isSelectedImage = false
-                delegate.onClickSelectedImage(imagePickerCell: self, assetItem: self.assetItem!, isSelected: false)
+                delegate.onClickSelectedImage(imagePickerCell: self, assetItem: assetItem, isSelected: false)
             } else {
                 let canSelectImage: Bool = delegate.canSelectImage(imagePickerCell: self)
                 if (canSelectImage == true) {
@@ -133,7 +133,7 @@ class MYImagePickerCell: UICollectionViewCell, MYImagePickerSubViewModelDelegate
                     sender.badgeNumber = badgeNumber
                     sender.isSelectedImage = true
                     self.isSelectedImage = true
-                    delegate.onClickSelectedImage(imagePickerCell: self, assetItem: self.assetItem!, isSelected: true)
+                    delegate.onClickSelectedImage(imagePickerCell: self, assetItem: assetItem, isSelected: true)
                 }
             }
         }

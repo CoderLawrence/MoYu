@@ -22,6 +22,7 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYIm
             if (newValue != nil) {
                 if (newValue?.thumbnailImage != nil) {
                     self.imageView.image = newValue?.thumbnailImage
+                    self.adjustImageViewFrame()
                 } else {
                     self.requestImage()
                 }
@@ -68,10 +69,9 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYIm
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.isMultipleTouchEnabled = true
-        scrollView.delaysContentTouches = false
         scrollView.canCancelContentTouches = true
+        scrollView.delaysContentTouches = false
         scrollView.alwaysBounceVertical = false
-        scrollView.alwaysBounceHorizontal = false
         scrollView.scrollsToTop = false
         scrollView.bouncesZoom = true
         scrollView.maximumZoomScale = 2.5
@@ -131,6 +131,18 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYIm
         self.imageView.center = CGPoint.init(x: scrollViewContentWidth * 0.5 + offsetX, y: scrollViewContentHeight * 0.5 + offsetY)
     }
     
+    private func adjustImageViewFrame() {
+        guard let image = self.imageView.image else { return }
+        let size = image.size
+        let isLongImage = size.height/size.width > 2
+        let scrollViewFrame = self.scrollView.frame
+        let viewHeight = size.height * scrollView.size.width / size.width
+        let viewOffsetY = isLongImage ? 0 : (scrollViewFrame.size.height - viewHeight) / 2
+        self.imageView.frame = CGRect.init(x: 0, y: viewOffsetY, width: scrollViewFrame.size.width, height: viewHeight)
+        self.scrollView.contentSize = CGSize.init(width: scrollViewFrame.size.width, height: viewHeight)
+    }
+    
+    //MARK: - 图片加载
     private func requestImage() {
         if let assetItem = self.assetItem {
             let requestId: PHImageRequestID = MYImagePickerManager.default.getAssetThumbnailImage(item: assetItem, width: self.frame.size.width) { (identifier, image) in
@@ -138,6 +150,7 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYIm
                 if (identifier == assetItem.identifier && image != nil) {
                     self.imageView.image = image
                     self.assetItem?.thumbnailImage = image
+                    self.adjustImageViewFrame()
                 }
                 
                 self.requestId = 0

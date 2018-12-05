@@ -63,6 +63,7 @@ extension UIView {
         }
     }
     
+    ///centerX
     var centerX: CGFloat {
         get {
             return center.x
@@ -75,6 +76,7 @@ extension UIView {
         }
     }
     
+    ///centerY
     var centerY: CGFloat {
         get {
             return center.y
@@ -84,6 +86,19 @@ extension UIView {
             var tempCenter: CGPoint = center
             tempCenter.y = newValue
             center = tempCenter
+        }
+    }
+    
+    ///size
+    var size: CGSize {
+        get {
+            return self.frame.size
+        }
+        
+        set {
+            var tempFrame: CGRect = frame
+            tempFrame.size = newValue
+            frame = tempFrame
         }
     }
 }
