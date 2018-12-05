@@ -16,8 +16,6 @@ protocol MYImagePickerBrowserCellDelegate: class {
 
 class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYImagePickerDetectingImageViewDelegate {
     
-    private let kPhotoMarginX: CGFloat = 10.0
-    
     ///图片获取ID
     private var requestId: PHImageRequestID = 0
     
@@ -71,7 +69,7 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYIm
     
     private lazy var scrollView: UIScrollView = {
         () -> UIScrollView in
-        let frame = CGRect.init(x: kPhotoMarginX, y: 0, width: self.width - kPhotoMarginX * 2, height: self.height)
+        let frame = CGRect.init(x: 0, y: 0, width: self.width, height: self.height)
         let scrollView: UIScrollView = UIScrollView.init(frame: frame)
         scrollView.backgroundColor = UIColor.clear
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

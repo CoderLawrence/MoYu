@@ -42,13 +42,14 @@ class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionVi
     private lazy var collectionView: UICollectionView = {
         () -> UICollectionView in
         
-        let layout = UICollectionViewFlowLayout.init()
-        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
-        layout.itemSize = self.frame.size
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        
-        let aView: UICollectionView = UICollectionView.init(frame: .zero, collectionViewLayout: layout)
+//        let layout = UICollectionViewFlowLayout.init()
+//        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
+//        layout.itemSize = self.frame.size
+//        layout.minimumInteritemSpacing = 0
+//        layout.minimumLineSpacing = 0
+        let layout = MYImagePickerBrowserLayout()
+        layout.itemSize = self.size
+        let aView: UICollectionView = UICollectionView.init(frame: self.frame, collectionViewLayout: layout)
         aView.register(MYImagePickerBrowserCell.classForCoder(), forCellWithReuseIdentifier: imageBroswerIdentifier)
         aView.backgroundColor = UIColor(white: 0, alpha: 0)
         aView.showsVerticalScrollIndicator = false

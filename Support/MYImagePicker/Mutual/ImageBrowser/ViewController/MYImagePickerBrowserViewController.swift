@@ -46,3 +46,13 @@ class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
         return aView
     }()
 }
+
+extension MYImagePickerBrowserViewController {
+    public func show() {
+        
+    }
+    
+    public func dismiss() {
+        
+    }
+}
