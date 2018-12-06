@@ -57,7 +57,6 @@ class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionVi
     
     private lazy var collectionView: UICollectionView = {
         () -> UICollectionView in
-        let frame: CGRect = CGRect.init(x: -kMYBrowserPhotoMarginX, y: 0, width: self.width + kMYBrowserPhotoMarginX * 2, height: self.height)
         let aView: UICollectionView = UICollectionView.init(frame: frame, collectionViewLayout: layout)
         aView.register(MYImagePickerBrowserCell.classForCoder(), forCellWithReuseIdentifier: imageBroswerIdentifier)
         aView.backgroundColor = UIColor(white: 0, alpha: 0)

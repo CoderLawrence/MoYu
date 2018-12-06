@@ -13,6 +13,9 @@ class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
     /// 相册数据
     public var images:[MYImagePickerItemModel]? = nil
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
     //MARK: - 初始化
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -26,7 +29,11 @@ class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
         super.viewDidLoad()
         self.setupUI()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
