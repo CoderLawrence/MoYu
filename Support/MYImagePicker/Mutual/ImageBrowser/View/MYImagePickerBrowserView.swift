@@ -8,13 +8,16 @@
 
 import UIKit
 
-fileprivate let imageBroswerIdentifier = "MYImagePickerBroswerCellIdentifier"
+public let kMYBrowserPhotoMarginX: CGFloat = 8.0
+
+private let imageBroswerIdentifier = "MYImagePickerBroswerCellIdentifier"
 
 class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, MYImagePickerBrowserCellDelegate {
     
+    ///相册数据
     public var images:[MYImagePickerItemModel]? {
-        willSet {
-            if (newValue != nil && newValue!.count > 0) {
+        didSet {
+            if images != nil && images!.count > 0 {
                 self.collectionView.reloadData()
             }
         }
@@ -39,17 +42,23 @@ class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionVi
     }
     
     //MARK: - 懒加载
+    
+    private lazy var layout: UICollectionViewFlowLayout = {
+        () -> UICollectionViewFlowLayout in
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
+        layout.sectionInset = UIEdgeInsets.init(top: 0, left: kMYBrowserPhotoMarginX * 2, bottom: 0, right: 0)
+        layout.itemSize = CGSize.init(width: self.width - kMYBrowserPhotoMarginX * 2, height: self.height)
+        layout.minimumInteritemSpacing = kMYBrowserPhotoMarginX * 2
+        layout.minimumLineSpacing = kMYBrowserPhotoMarginX * 2
+        
+        return layout
+    }()
+    
     private lazy var collectionView: UICollectionView = {
         () -> UICollectionView in
-        
-//        let layout = UICollectionViewFlowLayout.init()
-//        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
-//        layout.itemSize = self.frame.size
-//        layout.minimumInteritemSpacing = 0
-//        layout.minimumLineSpacing = 0
-        let layout = MYImagePickerBrowserLayout()
-        layout.itemSize = self.size
-        let aView: UICollectionView = UICollectionView.init(frame: self.frame, collectionViewLayout: layout)
+        let frame: CGRect = CGRect.init(x: -kMYBrowserPhotoMarginX, y: 0, width: self.width + kMYBrowserPhotoMarginX * 2, height: self.height)
+        let aView: UICollectionView = UICollectionView.init(frame: frame, collectionViewLayout: layout)
         aView.register(MYImagePickerBrowserCell.classForCoder(), forCellWithReuseIdentifier: imageBroswerIdentifier)
         aView.backgroundColor = UIColor(white: 0, alpha: 0)
         aView.showsVerticalScrollIndicator = false

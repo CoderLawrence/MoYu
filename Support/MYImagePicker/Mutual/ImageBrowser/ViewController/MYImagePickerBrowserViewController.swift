@@ -40,7 +40,8 @@ class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
     
     private lazy var imageBrowserView: MYImagePickerBrowserView = {
         () -> MYImagePickerBrowserView in
-        let aView = MYImagePickerBrowserView(frame: self.view.frame)
+        let frame = CGRect.init(x: -kMYBrowserPhotoMarginX, y: 0, width: self.view.width + kMYBrowserPhotoMarginX * 2, height: self.view.height)
+        let aView = MYImagePickerBrowserView(frame: frame)
         aView.images = self.images
         
         return aView

@@ -28,7 +28,6 @@
 		219DC2A72111F6740084DA5B /* UILabel+MYImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DC2A62111F6740084DA5B /* UILabel+MYImagePicker.swift */; };
 		21A5391E210B170A004586AA /* MYImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A5391D210B170A004586AA /* MYImagePickerViewController.swift */; };
 		21A9AD5E210976180074190D /* MYImagePickerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A9AD5D210976180074190D /* MYImagePickerError.swift */; };
-		21DD2CB521B82BBF00904130 /* MYImagePickerBrowserLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DD2CB421B82BBF00904130 /* MYImagePickerBrowserLayout.swift */; };
 		21DD2CB721B82C1800904130 /* MYImagePickerBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DD2CB621B82C1800904130 /* MYImagePickerBrowserViewController.swift */; };
 		21EE6AB920EF0DF50091D088 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EE6AB820EF0DF50091D088 /* AppDelegate.swift */; };
 		21EE6ABB20EF0DF50091D088 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EE6ABA20EF0DF50091D088 /* ViewController.swift */; };
@@ -43,6 +42,7 @@
 		6D25722921B0E88B0054D032 /* MYImagePickerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D25722821B0E88B0054D032 /* MYImagePickerNavigationController.swift */; };
 		6D25722B21B127260054D032 /* MYImagePickerBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D25722A21B127260054D032 /* MYImagePickerBrowserCell.swift */; };
 		6DAF5FBF21A28A9C009F89D1 /* MYImagePickerConfiger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAF5FBE21A28A9C009F89D1 /* MYImagePickerConfiger.swift */; };
+		A26854F13BDBCDAE0CBD5426 /* Pods_MoYu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9E13F06DBA268112DAAB41 /* Pods_MoYu.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,7 +101,6 @@
 		219DC2A62111F6740084DA5B /* UILabel+MYImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+MYImagePicker.swift"; sourceTree = "<group>"; };
 		21A5391D210B170A004586AA /* MYImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerViewController.swift; sourceTree = "<group>"; };
 		21A9AD5D210976180074190D /* MYImagePickerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerError.swift; sourceTree = "<group>"; };
-		21DD2CB421B82BBF00904130 /* MYImagePickerBrowserLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerBrowserLayout.swift; sourceTree = "<group>"; };
 		21DD2CB621B82C1800904130 /* MYImagePickerBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MYImagePickerBrowserViewController.swift; sourceTree = "<group>"; };
 		21EE6AB520EF0DF50091D088 /* MoYu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoYu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21EE6AB820EF0DF50091D088 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,10 +113,13 @@
 		21EE6AF120EF12E30091D088 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		21EE6AF320EF299B0091D088 /* MYImagePickerAlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerAlbumModel.swift; sourceTree = "<group>"; };
 		21EE6AF520EF2D010091D088 /* MYImagePickerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerItemModel.swift; sourceTree = "<group>"; };
+		5B9E13F06DBA268112DAAB41 /* Pods_MoYu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoYu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D25722621B0E8620054D032 /* MYImagePickerBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerBaseViewController.swift; sourceTree = "<group>"; };
 		6D25722821B0E88B0054D032 /* MYImagePickerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerNavigationController.swift; sourceTree = "<group>"; };
 		6D25722A21B127260054D032 /* MYImagePickerBrowserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerBrowserCell.swift; sourceTree = "<group>"; };
 		6DAF5FBE21A28A9C009F89D1 /* MYImagePickerConfiger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerConfiger.swift; sourceTree = "<group>"; };
+		94E0F231645631515D0FFD5C /* Pods-MoYu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoYu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoYu/Pods-MoYu.debug.xcconfig"; sourceTree = "<group>"; };
+		AA17A6A904DB027D83011CFD /* Pods-MoYu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoYu.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoYu/Pods-MoYu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			files = (
 				210E4F2B211351C9005604F8 /* AVFoundation.framework in Frameworks */,
 				21EE6AF220EF12E40091D088 /* Photos.framework in Frameworks */,
+				A26854F13BDBCDAE0CBD5426 /* Pods_MoYu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +248,7 @@
 				21824A57210C717B008AA1F8 /* MoYuUITests */,
 				21EE6AB620EF0DF50091D088 /* Products */,
 				21EE6AEB20EF117F0091D088 /* Frameworks */,
+				2F2671A45F1958790EB9FBA4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -314,6 +318,7 @@
 			children = (
 				210E4F2A211351C8005604F8 /* AVFoundation.framework */,
 				21EE6AF120EF12E30091D088 /* Photos.framework */,
+				5B9E13F06DBA268112DAAB41 /* Pods_MoYu.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -329,6 +334,15 @@
 				2161E76A210ABFDE001D2C99 /* Extensions */,
 			);
 			path = MYImagePicker;
+			sourceTree = "<group>";
+		};
+		2F2671A45F1958790EB9FBA4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94E0F231645631515D0FFD5C /* Pods-MoYu.debug.xcconfig */,
+				AA17A6A904DB027D83011CFD /* Pods-MoYu.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		6D25722321B0D8810054D032 /* Base */ = {
@@ -366,7 +380,6 @@
 				6D25722A21B127260054D032 /* MYImagePickerBrowserCell.swift */,
 				2113EE5821B37D0600D09BD4 /* MYImagePickerDetectingView.swift */,
 				2113EE5621B375FA00D09BD4 /* MYImagePickerDetectingImageView.swift */,
-				21DD2CB421B82BBF00904130 /* MYImagePickerBrowserLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -422,10 +435,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21EE6ADD20EF0DF70091D088 /* Build configuration list for PBXNativeTarget "MoYu" */;
 			buildPhases = (
+				0259853D76CC10E94E51CA66 /* [CP] Check Pods Manifest.lock */,
 				21EE6AB120EF0DF50091D088 /* Sources */,
 				21EE6AB220EF0DF50091D088 /* Frameworks */,
 				21EE6AB320EF0DF50091D088 /* Resources */,
 				212E3D1F211EA88900B9B9F2 /* Embed App Extensions */,
+				CD5EEDEE5C088E8430B07897 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -509,6 +524,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0259853D76CC10E94E51CA66 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoYu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD5EEDEE5C088E8430B07897 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MoYu/Pods-MoYu-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MoYu/Pods-MoYu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		21824A44210C716A008AA1F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -547,7 +609,6 @@
 				21824A61210C7CCA008AA1F8 /* MYImagePickerViewModel.swift in Sources */,
 				21EE6ABB20EF0DF50091D088 /* ViewController.swift in Sources */,
 				21EE6AF620EF2D010091D088 /* MYImagePickerItemModel.swift in Sources */,
-				21DD2CB521B82BBF00904130 /* MYImagePickerBrowserLayout.swift in Sources */,
 				21A9AD5E210976180074190D /* MYImagePickerError.swift in Sources */,
 				21EE6AB920EF0DF50091D088 /* AppDelegate.swift in Sources */,
 				211DF5352110408900C91009 /* MYImagePickerSubViewModel.swift in Sources */,
@@ -795,6 +856,7 @@
 		};
 		21EE6ADE20EF0DF70091D088 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94E0F231645631515D0FFD5C /* Pods-MoYu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -814,6 +876,7 @@
 		};
 		21EE6ADF20EF0DF70091D088 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA17A6A904DB027D83011CFD /* Pods-MoYu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

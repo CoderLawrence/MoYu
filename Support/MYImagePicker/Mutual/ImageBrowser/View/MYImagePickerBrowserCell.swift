@@ -24,10 +24,10 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYIm
     
     ///相册数据
     public var assetItem: MYImagePickerItemModel? {
-        willSet {
-            if (newValue != nil) {
-                if (newValue?.thumbnailImage != nil) {
-                    self.imageView.image = newValue?.thumbnailImage
+        didSet {
+            if let assetItem = assetItem {
+                if let image = assetItem.thumbnailImage {
+                    self.imageView.image = image
                     self.adjustImageViewFrame()
                 } else {
                     self.requestImage()
