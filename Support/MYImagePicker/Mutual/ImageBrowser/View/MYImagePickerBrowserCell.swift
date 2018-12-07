@@ -12,9 +12,12 @@ import Photos
 protocol MYImagePickerBrowserCellDelegate: class {
     ///图片放大委托
     func onZoomImageView(isZoomIn:Bool)
+    
+    ///单击图片委托
+    func onSingleTap(inView: MYImagePickerBrowserCell)
 }
 
-class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYImagePickerDetectingImageViewDelegate {
+class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate {
     
     ///图片获取ID
     private var requestId: PHImageRequestID = 0
@@ -40,6 +43,7 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYIm
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupUI()
+        self.addTapGestureRecognizers()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -58,12 +62,23 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYIm
         self.contentView.addSubview(self.scrollView)
     }
     
+    //MARK: - 点击事件
+    private func addTapGestureRecognizers() {
+        let singleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(onSingleTap(sender:)))
+        
+        let doubleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(onDoubleTap(sender:)))
+        doubleTapGesture.numberOfTapsRequired = 2
+        singleTapGesture.require(toFail: doubleTapGesture)
+        
+        self.scrollView.addGestureRecognizer(singleTapGesture)
+        self.scrollView.addGestureRecognizer(doubleTapGesture)
+    }
+    
     //MARK: - 懒加载
-    private lazy var imageView: MYImagePickerDetectingImageView = {
-        () -> MYImagePickerDetectingImageView in
-        let imageView = MYImagePickerDetectingImageView(frame: self.scrollView.bounds);
+    private lazy var imageView: UIImageView = {
+        () -> UIImageView in
+        let imageView = UIImageView(frame: self.scrollView.bounds);
         imageView.contentMode = UIView.ContentMode.scaleAspectFit
-        imageView.delegate = self
         return imageView
     }()
     
@@ -104,28 +119,6 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYIm
         if let delegate = self.delegate {
             delegate.onZoomImageView(isZoomIn: scale > 1.0)
         }
-    }
-    
-    //MARK: - MYImagePickerDetectingImageViewDelegate
-    func singleTapDetected(imageView: MYImagePickerDetectingImageView, touch: UITouch) {
-        
-    }
-    
-    func doubleTapDetected(imageView: MYImagePickerDetectingImageView, touch: UITouch) {
-        if self.scrollView.zoomScale > 1.0 {
-            self.scrollView.contentInset = UIEdgeInsets.zero
-            self.scrollView.setZoomScale(1.0, animated: true)
-        } else {
-            let touchPoint = touch.location(in: self.imageView)
-            let newZoomScale = self.scrollView.maximumZoomScale
-            let xSize = self.width / newZoomScale
-            let ySize = self.height / newZoomScale
-            self.scrollView.zoom(to: CGRect.init(x: touchPoint.x - xSize/2, y: touchPoint.y - ySize/2, width: xSize, height: ySize), animated: true)
-        }
-    }
-    
-    func tripleTapDetected(imageView: MYImagePickerDetectingImageView, touch: UITouch) {
-        
     }
     
     //MARK: - 公开方法
@@ -170,6 +163,7 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYIm
         let maxContentHeight = max(self.imageView.height, contentViewH)
         self.scrollView.contentSize = CGSize.init(width: self.width, height: maxContentHeight)
         self.scrollView.scrollRectToVisible(self.scrollView.bounds, animated: false)
+        
         if self.imageView.height <= contentViewH {
             self.scrollView.alwaysBounceVertical = false
         } else {
@@ -200,5 +194,26 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYIm
             MYImagePickerManager.default.cancelImageRequest(id: self.requestId)
             self.requestId = 0
         }
+    }
+    
+    //MARK: - 事件点击
+    @objc private func onSingleTap(sender: UITapGestureRecognizer) {
+        if let delegate = self.delegate {
+            delegate.onSingleTap(inView: self)
+        }
+    }
+    
+    @objc private func onDoubleTap(sender: UITapGestureRecognizer) {
+        if self.scrollView.zoomScale > 1.0 {
+            self.scrollView.contentInset = UIEdgeInsets.zero
+            self.scrollView.setZoomScale(1.0, animated: true)
+        } else {
+            let touchPoint = sender.location(in: self.imageView)
+            let newZoomScale = self.scrollView.maximumZoomScale
+            let xSize = self.width / newZoomScale
+            let ySize = self.height / newZoomScale
+            self.scrollView.zoom(to: CGRect.init(x: touchPoint.x - xSize/2, y: touchPoint.y - ySize/2, width: xSize, height: ySize), animated: true)
+        }
+
     }
 }

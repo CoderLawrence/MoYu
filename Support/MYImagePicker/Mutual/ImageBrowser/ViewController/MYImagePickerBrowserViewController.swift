@@ -28,6 +28,7 @@ class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.addSingleTapCallBack()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +54,15 @@ class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
         
         return aView
     }()
+    
+    //MARK: - 监听
+    private func addSingleTapCallBack() {
+        self.imageBrowserView.singleTapCallBack = {[weak self] in
+            guard let `self` = self else { return }
+            let isHidden = self.navigationController?.isNavigationBarHidden ?? false
+            self.navigationController?.setNavigationBarHidden(!isHidden, animated: true)
+        }
+    }
 }
 
 extension MYImagePickerBrowserViewController {

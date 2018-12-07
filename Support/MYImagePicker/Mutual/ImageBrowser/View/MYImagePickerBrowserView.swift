@@ -12,6 +12,8 @@ public let kMYBrowserPhotoMarginX: CGFloat = 8.0
 
 private let imageBroswerIdentifier = "MYImagePickerBroswerCellIdentifier"
 
+public typealias MYImagePickerBrowserSingleTapCallBack = () -> Void
+
 class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, MYImagePickerBrowserCellDelegate {
     
     ///相册数据
@@ -22,6 +24,9 @@ class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionVi
             }
         }
     }
+    
+    ///单点图片回调
+    public var singleTapCallBack: MYImagePickerBrowserSingleTapCallBack?
     
     //MARK: - 初始化
     override init(frame: CGRect) {
@@ -118,5 +123,11 @@ class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionVi
     //MARK: - MYImagePickerBrowserCellDelegate
     func onZoomImageView(isZoomIn: Bool) {
         self.collectionView.isScrollEnabled = !isZoomIn
+    }
+    
+    func onSingleTap(inView: MYImagePickerBrowserCell) {
+        if let callBack = self.singleTapCallBack {
+            callBack()
+        }
     }
 }
