@@ -146,13 +146,35 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate, MYIm
     
     private func adjustImageViewFrame() {
         guard let image = self.imageView.image else { return }
-        let size = image.size
-        let isLongImage = size.height/size.width > 2
-        let scrollViewFrame = self.scrollView.frame
-        let viewHeight = size.height * scrollView.size.width / size.width
-        let viewOffsetY = isLongImage ? 0 : (scrollViewFrame.size.height - viewHeight) / 2
-        self.imageView.frame = CGRect.init(x: 0, y: viewOffsetY, width: scrollViewFrame.size.width, height: viewHeight)
-        self.scrollView.contentSize = CGSize.init(width: scrollViewFrame.size.width, height: viewHeight)
+        
+        let imageW = image.size.width
+        let imageH = image.size.height
+        let imageViewW = self.imageView.width
+        let imageViewH = self.imageView.height
+        let contentViewW = self.contentView.width
+        let contentViewH = self.contentView.height
+        if imageH / imageW > contentViewH / contentViewW {
+            self.imageView.height = CGFloat(floor(imageH / (imageW / imageViewW)))
+            self.imageView.y = 0
+        } else {
+            var height = imageH / imageW * contentViewW
+            if height < 1 || height.isNaN { height = contentViewH }
+            self.imageView.height = CGFloat(floor(height))
+            self.imageView.centerY = contentViewH / 2
+        }
+        
+        if imageViewH > self.height && imageViewH - contentViewH <= 1 {
+            self.imageView.height = self.height
+        }
+        
+        let maxContentHeight = max(self.imageView.height, contentViewH)
+        self.scrollView.contentSize = CGSize.init(width: self.width, height: maxContentHeight)
+        self.scrollView.scrollRectToVisible(self.scrollView.bounds, animated: false)
+        if self.imageView.height <= contentViewH {
+            self.scrollView.alwaysBounceVertical = false
+        } else {
+            self.scrollView.alwaysBounceVertical = true
+        }
     }
     
     //MARK: - 图片加载
