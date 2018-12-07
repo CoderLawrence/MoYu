@@ -80,7 +80,7 @@ class MYImagePickerCell: UICollectionViewCell, MYImagePickerSubViewModelDelegate
         return viewModel
     }()
     
-    lazy var imageView: UIImageView = {
+    public lazy var imageView: UIImageView = {
        () -> UIImageView in
         let imageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
         imageView.contentMode = UIView.ContentMode.scaleAspectFill

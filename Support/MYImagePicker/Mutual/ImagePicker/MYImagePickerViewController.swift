@@ -157,6 +157,12 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
         return tempListView
     }()
     
+    private lazy var animator: MYImagePickerBrowserAnimator = {
+        () -> MYImagePickerBrowserAnimator in
+        let animator: MYImagePickerBrowserAnimator = MYImagePickerBrowserAnimator()
+        return animator
+    }()
+    
     // MARK: - 闭包传值回调
     func notifyImagePickerCancel() {
         if let onImagePicekerCancelCallBack = onCancelCallBack {
@@ -206,7 +212,11 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        self.viewModel.onClickToPreviewAssetItem(index: indexPath.row)
+        let imageView = self.previewImageView(collectionView: collectionView, indexPath: indexPath)
+        var rect = self.startImageRect(imageView: imageView!)
+        let browser: MYImagePickerBrowser = MYImagePickerBrowser()
+        browser.images = self.viewModel.currentAssetList
+        browser.show(inViewController: self, imageView: imageView)
     }
     
     // MARK: - MYImagePickerViewModelDelegate
@@ -271,11 +281,13 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
 }
 
 extension MYImagePickerViewController {
-    /// 显示相册
-    ///
-    /// - Parameter viewController: 要弹出相册的控制器
-    public func show(_ inViewController: UIViewController) {
-        let navigationController = MYImagePickerNavigationController.init(rootViewController: self)
-        inViewController.present(navigationController, animated: true, completion: nil)
+    
+    func previewImageView(collectionView: UICollectionView, indexPath: IndexPath) -> UIImageView? {
+        guard let cell: MYImagePickerCell = collectionView.cellForItem(at: indexPath) as? MYImagePickerCell else { return nil }
+        return cell.imageView
+    }
+    
+    func startImageRect(imageView: UIImageView) -> CGRect {
+        return self.view.convert(imageView.frame, from: UIApplication.shared.delegate?.window ?? nil)
     }
 }

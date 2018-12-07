@@ -47,7 +47,6 @@ public final class MYImagePicker {
         if (UIImagePickerController.isSourceTypeAvailable(.photoLibrary) == false) { return }
         
         let imagePickerVC: MYImagePickerViewController = MYImagePickerViewController()
-        imagePickerVC.configer = self.configer
         
         //选择图片回调
         imagePickerVC.onFinishedCallBack = {[weak self] images in
@@ -65,6 +64,8 @@ public final class MYImagePicker {
             }
         }
         
-        imagePickerVC.show(inViewController)
+        imagePickerVC.configer = self.configer
+        let navigationController = MYImagePickerNavigationController.init(rootViewController: imagePickerVC)
+        inViewController.present(navigationController, animated: true, completion: nil)
     }
 }

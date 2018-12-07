@@ -11,11 +11,11 @@ import UIKit
 class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
     
     /// 相册数据
-    public var images:[MYImagePickerItemModel]? = nil
+    public var images: [MYImagePickerItemModel]?
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle.lightContent
-    }
+    /// 转场动画
+    public var animator: MYImagePickerBrowserAnimator?
+    
     //MARK: - 初始化
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -62,15 +62,5 @@ class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
             let isHidden = self.navigationController?.isNavigationBarHidden ?? false
             self.navigationController?.setNavigationBarHidden(!isHidden, animated: true)
         }
-    }
-}
-
-extension MYImagePickerBrowserViewController {
-    public func show() {
-        
-    }
-    
-    public func dismiss() {
-        
     }
 }

@@ -81,14 +81,4 @@ public class MYImagePickerViewModel {
             }
         }
     }
-    
-    /// 选择某个图片
-    ///
-    /// - Parameter index: 图片索引
-    public func onClickToPreviewAssetItem(index: Int) {
-        guard let viewController = self.viewController else { return }
-        let vc: MYImagePickerBrowserViewController = MYImagePickerBrowserViewController()
-        vc.images = self.currentAssetList
-        viewController.navigationController?.pushViewController(vc, animated: true)
-    }
 }
