@@ -9,10 +9,10 @@
 import UIKit
 
 ///完成选择图片监听
-public typealias MYImagePickerSelectedImageCallBack = (_ images:[MYImagePickerItemModel]?) -> Void
+public typealias MYImagePickerFinishedCallBack = (_ images:[MYImagePickerItemModel]?) -> Void
 
 ///取消图片选择监听
-public typealias MYImagePickerCancelSelectedImageCallBack = (_ isCancel:Bool) -> Void
+public typealias MYImagePickerCancelCallBack = (_ isCancel:Bool) -> Void
 
 class MYImagePickerViewController: MYImagePickerBaseViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MYImagePickerViewModelDelegate, MYImagePickerAlbumSwitchButtonDelegate, MYImagePickerAlbumListViewDelegate, MYImagePickerCellDelegate {
     
@@ -20,10 +20,10 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
     public var configer: MYImagePickerConfiger? = MYImagePickerConfiger.defaultConfiger()
     
     /// 完成图片选择回调
-    public var onSelectedImageCallBack: MYImagePickerSelectedImageCallBack?
+    public var onFinishedCallBack: MYImagePickerFinishedCallBack?
     
     /// 取消图片选择回调
-    public var onCancelSelectedImageCallBack: MYImagePickerCancelSelectedImageCallBack?
+    public var onCancelCallBack: MYImagePickerCancelCallBack?
     
     // MARK: - init
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -159,13 +159,13 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
     
     // MARK: - 闭包传值回调
     func notifyImagePickerCancel() {
-        if let onImagePicekerCancelCallBack = onCancelSelectedImageCallBack {
+        if let onImagePicekerCancelCallBack = onCancelCallBack {
             onImagePicekerCancelCallBack(true)
         }
     }
     
     func notifyImageFinishSelected() {
-        if let onImagePickerFinishCallBack = onSelectedImageCallBack {
+        if let onImagePickerFinishCallBack = onFinishedCallBack {
             onImagePickerFinishCallBack(nil)
         }
     }

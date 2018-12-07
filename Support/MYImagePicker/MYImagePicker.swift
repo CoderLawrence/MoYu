@@ -49,16 +49,16 @@ public final class MYImagePicker {
         let imagePickerVC: MYImagePickerViewController = MYImagePickerViewController()
         imagePickerVC.configer = self.configer
         
-        imagePickerVC.onSelectedImageCallBack = {[weak self] images in
+        //选择图片回调
+        imagePickerVC.onFinishedCallBack = {[weak self] images in
             guard let `self` = self else { return }
-            if (images != nil) {
-                if let delegate = self.delegate {
-                    delegate.didFinishSelectedImage(imagePicker: self, images: images)
-                }
+            if let delegate = self.delegate {
+                delegate.didFinishSelectedImage(imagePicker: self, images: images)
             }
         }
         
-        imagePickerVC.onCancelSelectedImageCallBack = {[weak self] isCancel in
+        //取消选择图片回调
+        imagePickerVC.onCancelCallBack = {[weak self] isCancel in
             guard let `self` = self else { return }
             if let delegate = self.delegate {
                 delegate.cancel(imagePicker: self, isCancel: isCancel)
