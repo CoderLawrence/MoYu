@@ -154,6 +154,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		210185B721BC00B200AE434C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				21A5391D210B170A004586AA /* MYImagePickerViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		210185B821BC00BD00AE434C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				21824A60210C7CCA008AA1F8 /* MYImagePickerViewModel.swift */,
+				211DF5342110408900C91009 /* MYImagePickerSubViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		210185B921BC00C500AE434C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				211AA7D2210F2F2400EE25B3 /* MYImagePickerCell.swift */,
+				2118453C2112D4EC00C313D4 /* MYImagePickerAlbumCell.swift */,
+				211DF53221103ED400C91009 /* MYImagePickerBadgeButton.swift */,
+				211A6701211050D600A3247B /* MYImagePickerAlbumListView.swift */,
+				211A66FF211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2115659721BABF0A00242E69 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,14 +389,9 @@
 		6DF45BC021B7ACB500C32A7F /* ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
-				211AA7D2210F2F2400EE25B3 /* MYImagePickerCell.swift */,
-				2118453C2112D4EC00C313D4 /* MYImagePickerAlbumCell.swift */,
-				211DF53221103ED400C91009 /* MYImagePickerBadgeButton.swift */,
-				211A6701211050D600A3247B /* MYImagePickerAlbumListView.swift */,
-				211A66FF211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift */,
-				21824A60210C7CCA008AA1F8 /* MYImagePickerViewModel.swift */,
-				211DF5342110408900C91009 /* MYImagePickerSubViewModel.swift */,
-				21A5391D210B170A004586AA /* MYImagePickerViewController.swift */,
+				210185B921BC00C500AE434C /* View */,
+				210185B821BC00BD00AE434C /* ViewModel */,
+				210185B721BC00B200AE434C /* Controller */,
 			);
 			path = ImagePicker;
 			sourceTree = "<group>";
