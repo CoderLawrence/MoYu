@@ -13,6 +13,7 @@ class MYImagePickerBrowserPopAnimator: NSObject, UIViewControllerAnimatedTransit
     /// 转场动画参数
     public var transitionParameter: MYImagePickerBrowserTransitionParameter?
     
+    //MARK: - UIViewControllerAnimatedTransitioning
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.7
     }
@@ -42,6 +43,7 @@ class MYImagePickerBrowserPopAnimator: NSObject, UIViewControllerAnimatedTransit
         
         //过度的图片
         let transitionImageView: UIImageView = UIImageView.init(image: transitionImage)
+        transitionImageView.contentMode = UIView.ContentMode.scaleAspectFill
         transitionImageView.clipsToBounds = true
         transitionImageView.frame = toTransitionImageFrame
         containerView.addSubview(transitionImageView)

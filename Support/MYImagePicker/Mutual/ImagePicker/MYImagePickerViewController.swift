@@ -221,7 +221,7 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
         transitionParameter.transitionImageIndex = index
         self.browserTransitionAnimator.transitionParameter = transitionParameter
         
-        let browser: MYImagePickerBrowser = MYImagePickerBrowser()
+        let browser: MYImagePickerBrowserViewController = MYImagePickerBrowserViewController()
         browser.transitionAnimator = self.browserTransitionAnimator
         browser.images = self.viewModel.currentAssetList
         browser.show(inViewController: self)

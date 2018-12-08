@@ -10,8 +10,6 @@ import UIKit
 
 class MYImagePickerBrowserTransitionParameter {
     
-    //MARK: **************** 图片选择器、图片预览器都要传值 ***********************************
-    
     /// 转场过度图片
     public var transitionImage: UIImage? {
         didSet {
@@ -29,12 +27,8 @@ class MYImagePickerBrowserTransitionParameter {
         }
     }
     
-    //MARK: ***************** 只需要图片选择器传值 ******************************************
-    
     /// 图片选择器图片相对于屏幕所对应位置的大小集合
     public var transitionImageFrames: [NSValue]?
-    
-    //MARK: ***************** 只需要图片预览器传值 ******************************************
     
     /// 当前滑动时对应图片的frame
     public var currentPanGestureImageFrame: CGRect?
@@ -42,16 +36,19 @@ class MYImagePickerBrowserTransitionParameter {
     /// 滑动返回手势
     public var panGestureRecognizer: UIPanGestureRecognizer?
     
-    //MARK: ***************** 只读属性 ***************************************************
-    
-    ///通过transitionImage在内部计算出来在图片预览器上所显示的图片frame
+    /// 转场前图片的大小和位置
     fileprivate(set) var fromTransitionImageFrame: CGRect?
     
-    /// 通过转场索引（transitionImageIndex）在内部计算出来在图片预览器所对应图片frame
+    /// 转场后图片的大小和位置
     fileprivate(set) var toTransitionImageFrame: CGRect?
 }
 
 extension MYImagePickerBrowserTransitionParameter {
+    
+    /// 获取转场后图片的大小和位置
+    ///
+    /// - Parameter image: 图片
+    /// - Returns: 图片大小和位置
     private func backScreenImageViewRect(image: UIImage) -> CGRect {
         let imageW = image.size.width
         let imageH = image.size.height

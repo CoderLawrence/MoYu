@@ -262,6 +262,7 @@ public class MYImagePickerManager {
     ///   - item: 图片数据
     ///   - limitSize: 限制大小
     /// - Returns: 图片
+    @discardableResult
     public func synchronusGetImageForWithoutOritentation(item: MYImagePickerItemModel, limitSize: CGSize) -> UIImage? {
         var size: CGSize = limitSize
         let data: PHAsset = item.data!
@@ -281,6 +282,7 @@ public class MYImagePickerManager {
     ///   - item: 原始图片数据
     ///   - size: 大小
     /// - Returns: 图片数据
+    @discardableResult
     public func synchronusGetImageForLimitSize(item: MYImagePickerItemModel, limitSize: CGSize) -> UIImage? {
         
         //计算图片大小
@@ -306,6 +308,7 @@ public class MYImagePickerManager {
     ///   - item: 图片原始数据
     ///   - targetSize: 大小 无比例限制
     /// - Returns: 图片数据
+    @discardableResult
     public func synchronusGetImageForTargetSize(item: MYImagePickerItemModel, targetSize: CGSize) -> UIImage? {
         
         var originImage: UIImage? = nil

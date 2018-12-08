@@ -34,6 +34,7 @@ class MYImagePickerBrowserAnimatedTranstition: NSObject, UIViewControllerTransit
         return animator
     }()
     
+    //MARK: - UIViewControllerTransitioningDelegate
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self.customPushAnimator
     }

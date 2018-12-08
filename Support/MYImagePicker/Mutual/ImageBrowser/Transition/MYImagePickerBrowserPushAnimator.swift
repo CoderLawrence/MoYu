@@ -13,6 +13,7 @@ class MYImagePickerBrowserPushAnimator: NSObject, UIViewControllerAnimatedTransi
     /// 转场动画参数
     public var transitionParameter: MYImagePickerBrowserTransitionParameter?
     
+    //MARK: - UIViewControllerAnimatedTransitioning
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.4
     }

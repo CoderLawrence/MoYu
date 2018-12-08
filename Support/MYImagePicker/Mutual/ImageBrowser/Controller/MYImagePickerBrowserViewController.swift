@@ -10,8 +10,14 @@ import UIKit
 
 class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
     
+    /// 当前预览图片索引
+    public var index: Int?
+    
     /// 相册数据
     public var images: [MYImagePickerItemModel]?
+    
+    /// 转场动画
+    public var transitionAnimator: MYImagePickerBrowserAnimatedTranstition?
     
     //MARK: - 初始化
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -66,5 +72,21 @@ class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
 //            self.navigationController?.setNavigationBarHidden(!isHidden, animated: true)
             self.navigationController?.dismiss(animated: true, completion: nil)
         }
+    }
+}
+
+extension MYImagePickerBrowserViewController {
+    
+    /// 显示图片预览器
+    ///
+    /// - Parameters:
+    ///   - inViewController: 展示图片预览器的页面
+    ///   - imageView: 当前展示的图片
+    public func show(inViewController: UIViewController) {
+        let browserVC = MYImagePickerBrowserViewController()
+        let navigationVC = MYImagePickerNavigationController.init(rootViewController: browserVC)
+        navigationVC.transitioningDelegate = transitionAnimator
+        browserVC.images = self.images
+        inViewController.present(navigationVC, animated: true, completion: nil)
     }
 }

@@ -25,7 +25,7 @@ protocol MYImagePickerCellDelegate: class {
     /// - Returns: 返回选中图片的角标
     func onSelectedImageBadgeNumber(imagePickerCell: MYImagePickerCell) -> Int
     
-    /// 选择\取消图片
+    /// 选择取消图片
     ///
     /// - Parameters:
     ///   - imagePickerCell: MYImagePickerCell

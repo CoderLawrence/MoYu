@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		210185B621BBAD5100AE434C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210185B521BBAD5100AE434C /* UIImage+Extension.swift */; };
 		210E4F2B211351C9005604F8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210E4F2A211351C8005604F8 /* AVFoundation.framework */; };
 		211318C821B2BDDA0052DEF9 /* MYImagePickerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211318C721B2BDDA0052DEF9 /* MYImagePickerConstants.swift */; };
 		211318CA21B2F23E0052DEF9 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211318C921B2F23E0052DEF9 /* UIKit+Extension.swift */; };
@@ -44,7 +43,6 @@
 		6D25722721B0E8620054D032 /* MYImagePickerBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D25722621B0E8620054D032 /* MYImagePickerBaseViewController.swift */; };
 		6D25722921B0E88B0054D032 /* MYImagePickerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D25722821B0E88B0054D032 /* MYImagePickerNavigationController.swift */; };
 		6D25722B21B127260054D032 /* MYImagePickerBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D25722A21B127260054D032 /* MYImagePickerBrowserCell.swift */; };
-		6D9F35CB21BA805000A7B754 /* MYImagePickerBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9F35CA21BA805000A7B754 /* MYImagePickerBrowser.swift */; };
 		6DAF5FBF21A28A9C009F89D1 /* MYImagePickerConfiger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAF5FBE21A28A9C009F89D1 /* MYImagePickerConfiger.swift */; };
 		A26854F13BDBCDAE0CBD5426 /* Pods_MoYu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9E13F06DBA268112DAAB41 /* Pods_MoYu.framework */; };
 /* End PBXBuildFile section */
@@ -80,7 +78,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		210185B521BBAD5100AE434C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		210E4F2A211351C8005604F8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		211318C721B2BDDA0052DEF9 /* MYImagePickerConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerConstants.swift; sourceTree = "<group>"; };
 		211318C921B2F23E0052DEF9 /* UIKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
@@ -124,7 +121,6 @@
 		6D25722621B0E8620054D032 /* MYImagePickerBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerBaseViewController.swift; sourceTree = "<group>"; };
 		6D25722821B0E88B0054D032 /* MYImagePickerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerNavigationController.swift; sourceTree = "<group>"; };
 		6D25722A21B127260054D032 /* MYImagePickerBrowserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerBrowserCell.swift; sourceTree = "<group>"; };
-		6D9F35CA21BA805000A7B754 /* MYImagePickerBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerBrowser.swift; sourceTree = "<group>"; };
 		6DAF5FBE21A28A9C009F89D1 /* MYImagePickerConfiger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerConfiger.swift; sourceTree = "<group>"; };
 		94E0F231645631515D0FFD5C /* Pods-MoYu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoYu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoYu/Pods-MoYu.debug.xcconfig"; sourceTree = "<group>"; };
 		AA17A6A904DB027D83011CFD /* Pods-MoYu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoYu.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoYu/Pods-MoYu.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,7 +166,6 @@
 		2115659821BABF2500242E69 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6D9F35CA21BA805000A7B754 /* MYImagePickerBrowser.swift */,
 				21DD2CB621B82C1800904130 /* MYImagePickerBrowserViewController.swift */,
 			);
 			path = Controller;
@@ -191,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				211318C921B2F23E0052DEF9 /* UIKit+Extension.swift */,
-				210185B521BBAD5100AE434C /* UIImage+Extension.swift */,
 				219DC2A62111F6740084DA5B /* UILabel+MYImagePicker.swift */,
 				2161E76D210AC0CF001D2C99 /* MYImagePickerItemModel+Extension.swift */,
 				2161E76B210AC077001D2C99 /* MYImagePickerAlbumModel+Extension.swift */,
@@ -607,7 +601,6 @@
 				21EE6ABB20EF0DF50091D088 /* ViewController.swift in Sources */,
 				21EE6AF620EF2D010091D088 /* MYImagePickerItemModel.swift in Sources */,
 				21A9AD5E210976180074190D /* MYImagePickerError.swift in Sources */,
-				6D9F35CB21BA805000A7B754 /* MYImagePickerBrowser.swift in Sources */,
 				21EE6AB920EF0DF50091D088 /* AppDelegate.swift in Sources */,
 				211DF5352110408900C91009 /* MYImagePickerSubViewModel.swift in Sources */,
 				2115659B21BABFCE00242E69 /* MYImagePickerBrowserTransitionParameter.swift in Sources */,
@@ -615,7 +608,6 @@
 				211318C821B2BDDA0052DEF9 /* MYImagePickerConstants.swift in Sources */,
 				211DF53321103ED400C91009 /* MYImagePickerBadgeButton.swift in Sources */,
 				219DC2A72111F6740084DA5B /* UILabel+MYImagePicker.swift in Sources */,
-				210185B621BBAD5100AE434C /* UIImage+Extension.swift in Sources */,
 				2161E76C210AC077001D2C99 /* MYImagePickerAlbumModel+Extension.swift in Sources */,
 				6D25722921B0E88B0054D032 /* MYImagePickerNavigationController.swift in Sources */,
 				213EE94421AC48C1001C4D4B /* MYImagePickerBrowserView.swift in Sources */,
