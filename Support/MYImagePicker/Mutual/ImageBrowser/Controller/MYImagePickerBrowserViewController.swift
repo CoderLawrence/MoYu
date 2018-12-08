@@ -13,9 +13,6 @@ class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
     /// 相册数据
     public var images: [MYImagePickerItemModel]?
     
-    /// 转场动画
-    public var animator: MYImagePickerBrowserAnimator?
-    
     //MARK: - 初始化
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -33,6 +30,12 @@ class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,8 +62,9 @@ class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
     private func addSingleTapCallBack() {
         self.imageBrowserView.singleTapCallBack = {[weak self] in
             guard let `self` = self else { return }
-            let isHidden = self.navigationController?.isNavigationBarHidden ?? false
-            self.navigationController?.setNavigationBarHidden(!isHidden, animated: true)
+//            let isHidden = self.navigationController?.isNavigationBarHidden ?? false
+//            self.navigationController?.setNavigationBarHidden(!isHidden, animated: true)
+            self.navigationController?.dismiss(animated: true, completion: nil)
         }
     }
 }

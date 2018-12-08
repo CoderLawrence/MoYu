@@ -87,6 +87,12 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
         return tempViewModel
     }()
     
+    private lazy var browserTransitionAnimator: MYImagePickerBrowserAnimatedTranstition = {
+        () -> MYImagePickerBrowserAnimatedTranstition in
+        let transition = MYImagePickerBrowserAnimatedTranstition()
+        return transition
+    }()
+    
     private lazy var layout: UICollectionViewFlowLayout = {
       () -> UICollectionViewFlowLayout in
         
@@ -157,12 +163,6 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
         return tempListView
     }()
     
-    private lazy var animator: MYImagePickerBrowserAnimator = {
-        () -> MYImagePickerBrowserAnimator in
-        let animator: MYImagePickerBrowserAnimator = MYImagePickerBrowserAnimator()
-        return animator
-    }()
-    
     // MARK: - 闭包传值回调
     func notifyImagePickerCancel() {
         if let onImagePicekerCancelCallBack = onCancelCallBack {
@@ -212,11 +212,19 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        let imageView = self.previewImageView(collectionView: collectionView, indexPath: indexPath)
-        var rect = self.startImageRect(imageView: imageView!)
+        let index: Int = indexPath.row
+        let cell: MYImagePickerCell = collectionView.cellForItem(at: indexPath) as! MYImagePickerCell
+        
+        let transitionParameter = MYImagePickerBrowserTransitionParameter()
+        transitionParameter.transitionImageFrames = self.transitionImageFrames()
+        transitionParameter.transitionImage = cell.imageView.image
+        transitionParameter.transitionImageIndex = index
+        self.browserTransitionAnimator.transitionParameter = transitionParameter
+        
         let browser: MYImagePickerBrowser = MYImagePickerBrowser()
+        browser.transitionAnimator = self.browserTransitionAnimator
         browser.images = self.viewModel.currentAssetList
-        browser.show(inViewController: self, imageView: imageView)
+        browser.show(inViewController: self)
     }
     
     // MARK: - MYImagePickerViewModelDelegate
@@ -281,13 +289,19 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
 }
 
 extension MYImagePickerViewController {
-    
-    func previewImageView(collectionView: UICollectionView, indexPath: IndexPath) -> UIImageView? {
-        guard let cell: MYImagePickerCell = collectionView.cellForItem(at: indexPath) as? MYImagePickerCell else { return nil }
-        return cell.imageView
+    func transitionImageFrames() -> [NSValue]? {
+        var imageFrames:[NSValue] = []
+        for index in 0..<self.viewModel.currentAssetList.count {
+            let indexPath = IndexPath.init(item: index, section: 0)
+            let cell = self.collectionView.cellForItem(at: indexPath) as! MYImagePickerCell
+            let frame = self.frameInWindowForView(view: cell.imageView)
+            imageFrames.append(NSValue.init(cgRect: frame ?? .zero))
+        }
+        
+        return imageFrames
     }
     
-    func startImageRect(imageView: UIImageView) -> CGRect {
-        return self.view.convert(imageView.frame, from: UIApplication.shared.delegate?.window ?? nil)
+    func frameInWindowForView(view: UIView) -> CGRect? {
+        return view.superview?.convert(view.frame, to: nil)
     }
 }
