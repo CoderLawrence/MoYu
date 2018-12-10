@@ -10,9 +10,6 @@ import UIKit
 
 class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
     
-    /// 当前预览图片索引
-    public var index: Int?
-    
     /// 相册数据
     public var images: [MYImagePickerItemModel]?
     
@@ -31,7 +28,8 @@ class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-        self.addSingleTapCallBack()
+        self.addSingleTapListener()
+        self.scrollBrowserImageToIndex()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,13 +63,22 @@ class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
     }()
     
     //MARK: - 监听
-    private func addSingleTapCallBack() {
+    private func addSingleTapListener() {
         self.imageBrowserView.singleTapCallBack = {[weak self] in
             guard let `self` = self else { return }
-//            let isHidden = self.navigationController?.isNavigationBarHidden ?? false
-//            self.navigationController?.setNavigationBarHidden(!isHidden, animated: true)
             self.navigationController?.dismiss(animated: true, completion: nil)
         }
+    }
+}
+
+extension MYImagePickerBrowserViewController {
+    
+    /// 滑动图片到指定的索引
+    private func scrollBrowserImageToIndex() {
+        guard let transitionAnimator = transitionAnimator,
+              let transitionParameter = transitionAnimator.transitionParameter,
+              let transitionImageIndex = transitionParameter.transitionImageIndex else { return }
+        self.imageBrowserView.scrollBrowserImage(forIndex: transitionImageIndex)
     }
 }
 
@@ -83,10 +90,8 @@ extension MYImagePickerBrowserViewController {
     ///   - inViewController: 展示图片预览器的页面
     ///   - imageView: 当前展示的图片
     public func show(inViewController: UIViewController) {
-        let browserVC = MYImagePickerBrowserViewController()
-        let navigationVC = MYImagePickerNavigationController.init(rootViewController: browserVC)
+        let navigationVC = MYImagePickerNavigationController.init(rootViewController: self)
         navigationVC.transitioningDelegate = transitionAnimator
-        browserVC.images = self.images
         inViewController.present(navigationVC, animated: true, completion: nil)
     }
 }

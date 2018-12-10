@@ -81,6 +81,17 @@ class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionVi
         return aView
     }()
     
+    //MARK: - 公开方法
+    
+    /// 滑动图片到指定索引
+    ///
+    /// - Parameter index: 对应要预览图片的索引
+    public func scrollBrowserImage(forIndex index: Int) {
+        guard let images = images, index < images.count else { return }
+        let indexPath = IndexPath.init(row: index, section: 0)
+        self.collectionView.scrollToItem(at: indexPath, at: .right, animated: true)
+    }
+    
     //MARK: - UICollectionViewDelegate && UICollectionViewDataSource
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if (self.images != nil && self.images!.count > 0) {
