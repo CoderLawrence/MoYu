@@ -75,7 +75,7 @@ class MYImagePickerBrowserCell: UICollectionViewCell, UIScrollViewDelegate {
     }
     
     //MARK: - 懒加载
-    private lazy var imageView: UIImageView = {
+    public lazy var imageView: UIImageView = {
         () -> UIImageView in
         let imageView = UIImageView(frame: self.scrollView.bounds);
         imageView.contentMode = UIView.ContentMode.scaleAspectFit

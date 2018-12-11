@@ -13,6 +13,7 @@ public let kMYBrowserPhotoMarginX: CGFloat = 8.0
 private let imageBroswerIdentifier = "MYImagePickerBroswerCellIdentifier"
 
 public typealias MYImagePickerBrowserSingleTapCallBack = () -> Void
+public typealias MYImagePickerBrowserScrollBrowserImageCallBack = (_ index: Int?, _ image: UIImage?) -> Void
 
 class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, MYImagePickerBrowserCellDelegate {
     
@@ -27,6 +28,9 @@ class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionVi
     
     ///单点图片回调
     public var singleTapCallBack: MYImagePickerBrowserSingleTapCallBack?
+    
+    /// 拖动预览图片回调
+    public var scrollBrowserImageCallBack: MYImagePickerBrowserScrollBrowserImageCallBack?
     
     //MARK: - 初始化
     override init(frame: CGRect) {
@@ -131,6 +135,15 @@ class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionVi
         }
     }
     
+    //MARK: - UIScrollViewDelegate
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView == self.collectionView {
+            let offsetX = self.collectionView.contentOffset.x
+            let index = Int(offsetX / self.width)
+            self.onScrollBrowserImage(forIndex: index)
+        }
+    }
+    
     //MARK: - MYImagePickerBrowserCellDelegate
     func onZoomImageView(isZoomIn: Bool) {
         self.collectionView.isScrollEnabled = !isZoomIn
@@ -139,6 +152,22 @@ class MYImagePickerBrowserView: UIView, UICollectionViewDelegate, UICollectionVi
     func onSingleTap(inView: MYImagePickerBrowserCell) {
         if let callBack = self.singleTapCallBack {
             callBack()
+        }
+    }
+}
+
+extension MYImagePickerBrowserView {
+    
+    /// 预览滑动图片
+    ///
+    /// - Parameter index: 对应的索引
+    func onScrollBrowserImage(forIndex index: Int) {
+        guard let images = self.images,
+                  index < images.count else { return }
+        let indexPath = IndexPath.init(row: index, section: 0)
+        let cell = self.collectionView.cellForItem(at: indexPath) as! MYImagePickerBrowserCell
+        if let callBack = scrollBrowserImageCallBack {
+            callBack(index, cell.imageView.image)
         }
     }
 }

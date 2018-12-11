@@ -29,6 +29,7 @@ class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
         super.viewDidLoad()
         self.setupUI()
         self.addSingleTapListener()
+        self.addScrollBrowserImageListener()
         self.scrollBrowserImageToIndex()
     }
     
@@ -67,6 +68,16 @@ class MYImagePickerBrowserViewController: MYImagePickerBaseViewController {
         self.imageBrowserView.singleTapCallBack = {[weak self] in
             guard let `self` = self else { return }
             self.navigationController?.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    private func addScrollBrowserImageListener() {
+        self.imageBrowserView.scrollBrowserImageCallBack = {[weak self] index, image in
+            guard let `self` = self else { return }
+            guard let transitionAnimator = self.transitionAnimator,
+                  let transitionParameter = transitionAnimator.transitionParameter else { return }
+            transitionParameter.transitionImage = image
+            transitionParameter.transitionImageIndex = index
         }
     }
 }
