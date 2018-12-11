@@ -58,8 +58,8 @@ public class MYImagePickerViewModel {
                 self.albumList.append(contentsOf: albumList)
                 self.currentAlbum = albumList.first
                 
-                if (self.delegate != nil) {
-                    self.delegate?.didFinishLoadAlbumList(self, albumList)
+                if let delegate = self.delegate {
+                    delegate.didFinishLoadAlbumList(self, albumList)
                 }
             }
         }
@@ -75,8 +75,8 @@ public class MYImagePickerViewModel {
                 self.currentAssetList.removeAll()
                 self.currentAssetList.append(contentsOf: list)
                 
-                if (self.delegate != nil) {
-                    self.delegate?.didFinishLoadAssetList(self, self.currentAssetList)
+                if let delegate = self.delegate {
+                     delegate.didFinishLoadAssetList(self, self.currentAssetList)
                 }
             }
         }
