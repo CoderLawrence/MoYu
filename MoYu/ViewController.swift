@@ -49,6 +49,13 @@ class ViewController: UIViewController, MYImagePickerDelegate {
         button.setTitleColor(UIColor.black, for: UIControl.State.normal)
         self.view.addSubview(button)
         
+        
+        let animationButton: UIButton = UIButton(frame: CGRect(x: self.view.frame.size.width/2, y: 200, width: 50, height: 25))
+        animationButton.addTarget(self, action: #selector(onAnimationPress), for: UIControl.Event.touchUpInside)
+        animationButton.setTitle("动画", for: UIControl.State.normal)
+        animationButton.setTitleColor(UIColor.black, for: UIControl.State.normal)
+        self.view.addSubview(animationButton)
+        
         print("isPhoneXSeries = \(isIPhoneXSeries)")
         print("safeBottom = \(iphoneXSeriesBottom)")
     }
@@ -61,6 +68,11 @@ class ViewController: UIViewController, MYImagePickerDelegate {
     @objc private func onButtonPress() {
         let imagePicker: MYImagePicker = MYImagePicker(delegate: self)
         imagePicker.show(self)
+    }
+    
+    @objc private func onAnimationPress() {
+        let vc = MYKeyFrameAnimationViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func didFinishSelectedImage(imagePicker: MYImagePicker, images: [MYImagePickerItemModel]?) {

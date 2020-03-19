@@ -27,6 +27,8 @@
 		21824A4B210C716A008AA1F8 /* MoYuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21824A4A210C716A008AA1F8 /* MoYuTests.swift */; };
 		21824A59210C717B008AA1F8 /* MoYuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21824A58210C717B008AA1F8 /* MoYuUITests.swift */; };
 		21824A61210C7CCA008AA1F8 /* MYImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21824A60210C7CCA008AA1F8 /* MYImagePickerViewModel.swift */; };
+		2199399521D7CBEA009E9D90 /* MYKeyFrameAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199399421D7CBEA009E9D90 /* MYKeyFrameAnimationViewController.swift */; };
+		2199399721D7D58C009E9D90 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2199399621D7D58C009E9D90 /* QuartzCore.framework */; };
 		219DC2A72111F6740084DA5B /* UILabel+MYImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DC2A62111F6740084DA5B /* UILabel+MYImagePicker.swift */; };
 		21A5391E210B170A004586AA /* MYImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A5391D210B170A004586AA /* MYImagePickerViewController.swift */; };
 		21A9AD5E210976180074190D /* MYImagePickerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A9AD5D210976180074190D /* MYImagePickerError.swift */; };
@@ -102,6 +104,8 @@
 		21824A58210C717B008AA1F8 /* MoYuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoYuUITests.swift; sourceTree = "<group>"; };
 		21824A5A210C717B008AA1F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21824A60210C7CCA008AA1F8 /* MYImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerViewModel.swift; sourceTree = "<group>"; };
+		2199399421D7CBEA009E9D90 /* MYKeyFrameAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYKeyFrameAnimationViewController.swift; sourceTree = "<group>"; };
+		2199399621D7D58C009E9D90 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		219DC2A62111F6740084DA5B /* UILabel+MYImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+MYImagePicker.swift"; sourceTree = "<group>"; };
 		21A5391D210B170A004586AA /* MYImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerViewController.swift; sourceTree = "<group>"; };
 		21A9AD5D210976180074190D /* MYImagePickerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYImagePickerError.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2199399721D7D58C009E9D90 /* QuartzCore.framework in Frameworks */,
 				210E4F2B211351C9005604F8 /* AVFoundation.framework in Frameworks */,
 				21EE6AF220EF12E40091D088 /* Photos.framework in Frameworks */,
 				A26854F13BDBCDAE0CBD5426 /* Pods_MoYu.framework in Frameworks */,
@@ -300,6 +305,7 @@
 				21EE6ABA20EF0DF50091D088 /* ViewController.swift */,
 				21EE6ABC20EF0DF50091D088 /* Main.storyboard */,
 				21EE6AC120EF0DF70091D088 /* LaunchScreen.storyboard */,
+				2199399421D7CBEA009E9D90 /* MYKeyFrameAnimationViewController.swift */,
 			);
 			path = MoYu;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 		21EE6AEB20EF117F0091D088 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2199399621D7D58C009E9D90 /* QuartzCore.framework */,
 				210E4F2A211351C8005604F8 /* AVFoundation.framework */,
 				21EE6AF120EF12E30091D088 /* Photos.framework */,
 				5B9E13F06DBA268112DAAB41 /* Pods_MoYu.framework */,
@@ -473,7 +480,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0930;
-				ORGANIZATIONNAME = Lawrence;
+				ORGANIZATIONNAME = MoYu;
 				TargetAttributes = {
 					21824A47210C716A008AA1F8 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -607,6 +614,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21A5391E210B170A004586AA /* MYImagePickerViewController.swift in Sources */,
+				2199399521D7CBEA009E9D90 /* MYKeyFrameAnimationViewController.swift in Sources */,
 				2115659D21BAD5A400242E69 /* MYImagePickerBrowserAnimatedTranstition.swift in Sources */,
 				2143CB76219FCF7700CDC39C /* MYImagePicker.swift in Sources */,
 				211A6700211050A400A3247B /* MYImagePickerAlbumSwitchButton.swift in Sources */,

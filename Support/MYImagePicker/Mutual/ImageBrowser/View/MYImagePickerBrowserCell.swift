@@ -2,7 +2,7 @@
 //  MYImagePickerBrowserCell.swift
 //  MoYu
 //  图片预览cell
-//  Created by zengqingsong on 2018/11/30.
+//  Created by Lawrence on 2018/11/30.
 //  Copyright © 2018 Lawrence. All rights reserved.
 //
 

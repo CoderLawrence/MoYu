@@ -9,6 +9,7 @@
 import Foundation
 import Dispatch
 import Photos
+import UIKit
 
 /// 授权状态枚举
 public enum MYImagePickerAuthorizationStatus: Int {
