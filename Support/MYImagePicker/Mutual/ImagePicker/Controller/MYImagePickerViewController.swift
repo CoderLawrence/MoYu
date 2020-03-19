@@ -25,6 +25,8 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
     /// 取消图片选择回调
     public var onCancelCallBack: MYImagePickerCancelCallBack?
     
+    private var albumeCellFrames:[NSValue] = []
+    
     // MARK: - init
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -206,6 +208,7 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
         let assetItem: MYImagePickerItemModel = self.viewModel.currentAssetList[indexPath.row]
         cell.setAssetItem(item: assetItem)
         cell.delegate = self
+        updateTransitionImageFrames()
         
         return cell
     }
@@ -216,7 +219,7 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
         let cell: MYImagePickerCell = collectionView.cellForItem(at: indexPath) as! MYImagePickerCell
         
         let transitionParameter = MYImagePickerBrowserTransitionParameter()
-        transitionParameter.transitionImageFrames = self.transitionImageFrames()
+        transitionParameter.transitionImageFrames = albumeCellFrames
         transitionParameter.transitionImage = cell.imageView.image
         transitionParameter.transitionImageIndex = index
         self.browserTransitionAnimator.transitionParameter = transitionParameter
@@ -289,16 +292,23 @@ class MYImagePickerViewController: MYImagePickerBaseViewController, UICollection
 }
 
 extension MYImagePickerViewController {
-    func transitionImageFrames() -> [NSValue]? {
-        var imageFrames:[NSValue] = []
-        for index in 0..<self.viewModel.currentAssetList.count {
-            let indexPath = IndexPath.init(item: index, section: 0)
-            let cell = self.collectionView.cellForItem(at: indexPath) as! MYImagePickerCell
-            let frame = self.frameInWindowForView(view: cell.imageView)
-            imageFrames.append(NSValue.init(cgRect: frame ?? .zero))
+    func updateTransitionImageFrames() {
+        let indexPaths = self.collectionView.indexPathsForVisibleItems.sorted { (n1:IndexPath, n2:IndexPath) -> Bool in
+            return n1.row < n2.row
         }
         
-        return imageFrames
+        for index in 0..<indexPaths.count {
+            if let cell = self.collectionView.cellForItem(at: indexPaths[index]) as? MYImagePickerCell {
+                let indexPath:IndexPath = indexPaths[index]
+                let frame = self.frameInWindowForView(view: cell.imageView)
+                let frameVal = NSValue.init(cgRect: frame ?? .zero)
+                if albumeCellFrames.isEmpty || indexPath.row >= albumeCellFrames.count {
+                    albumeCellFrames.append(frameVal)
+                } else {
+                    albumeCellFrames[indexPath.row] = frameVal
+                }
+            }
+        }
     }
     
     func frameInWindowForView(view: UIView) -> CGRect? {

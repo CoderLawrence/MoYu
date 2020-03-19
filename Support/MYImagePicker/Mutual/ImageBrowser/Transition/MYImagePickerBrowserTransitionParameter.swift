@@ -23,6 +23,7 @@ class MYImagePickerBrowserTransitionParameter {
         didSet {
             guard let index = transitionImageIndex,
                   let transitionImageFrames = transitionImageFrames else { return }
+            guard index < transitionImageFrames.count else { return }
             fromTransitionImageFrame = transitionImageFrames[index].cgRectValue
         }
     }
